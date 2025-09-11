@@ -1,0 +1,83 @@
+.footer {
+  padding: 40px 60px 20px;
+  font-size: 0.95rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.footer.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.footer.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-column a {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 8px;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: var(--primary);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(128, 128, 128, 0.4);
+  margin: 30px 0 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.9rem;
+}
+
+.footer-lang select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  font-size: 1.2rem;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--primary);
+}
+
+.footer-copy {
+  opacity: 0.8;
+}

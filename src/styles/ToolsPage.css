@@ -1,0 +1,103 @@
+/* Page Wrapper */
+.tools-page {
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+  flex-direction: column;
+}
+
+/* Light + Dark background */
+.tools-page.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.tools-page.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+  justify-content: center;
+}
+
+.search-bar input {
+  flex: 0 0 50%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: background 0.3s, color 0.3s;
+}
+
+.search-bar.light input {
+  background: var(--card-light);
+  color: var(--text-light);
+  border: 1px solid #ccc;
+}
+
+.search-bar.dark input {
+  background: var(--card-dark);
+  color: var(--text-dark);
+  border: 1px solid #444;
+}
+
+.search-bar button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-bar.light button {
+  background: var(--primary);
+  color: white;
+}
+
+.search-bar.dark button {
+  background: var(--primary);
+  color: white;
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.tool-card {
+  padding: 16px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  /* text-align: center; */
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tool-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tool-footer {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.no-results {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 1.1rem;
+}
