@@ -6,6 +6,8 @@ import ToolsPage from "./components/ToolsPage";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 import { useEffect } from "react";
 import Footer from "./components/Footer";
+import ImageResizer from "./components/tools/ImageResizer";
+import UnitConverter from "./components/tools/UnitConverter";
 
 function App() {
   const { theme } = useTheme();
@@ -24,7 +26,8 @@ function App() {
           </Routes>
           <Footer></Footer>
         </Router>
-    
+    <ImageResizer></ImageResizer>
+    <UnitConverter></UnitConverter>
     </>
   );
 }
