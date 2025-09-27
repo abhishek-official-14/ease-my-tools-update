@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import ImageResizer from "./components/tools/ImageResizer";
 import UnitConverter from "./components/tools/UnitConverter";
+import LanguageSelector from "./components/LanguageSelector";
 
 function App() {
   const { theme } = useTheme();
@@ -17,17 +18,16 @@ function App() {
   }, [theme]);
   return (
     <>
-      
-        <Router>
-          <Navbar></Navbar>
-          <Header></Header>
-          <Routes>
-            <Route path="/" element={<ToolsPage />} />
-          </Routes>
-          <Footer></Footer>
-        </Router>
-    <ImageResizer></ImageResizer>
-    <UnitConverter></UnitConverter>
+      <Router>
+        <Navbar></Navbar>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<ToolsPage />} />
+        </Routes>
+      </Router>
+      <ImageResizer></ImageResizer>
+      <UnitConverter></UnitConverter>
+      <Footer></Footer>
     </>
   );
 }

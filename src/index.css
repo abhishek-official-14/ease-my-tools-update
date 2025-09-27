@@ -108,3 +108,79 @@ input {
   font-family: inherit;
   outline: none;
 }
+
+
+
+
+/* Language Selector */
+.language-selector {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+}
+
+/* Button styling */
+.language-btn {
+  background: var(--card-light);
+  color: var(--text-light);
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.language-btn .arrow {
+  font-size: 10px;
+}
+
+/* Dark mode override */
+body.dark .language-btn {
+  background: var(--card-dark);
+  color: var(--text-dark);
+  border: 1px solid #374151;
+}
+
+/* Dropdown */
+.language-dropdown {
+  position: absolute;
+  bottom: 105%;
+  left: 0;
+  background: var(--bg-light);
+  color: var(--text-light);
+  border-radius: 8px;
+  padding: 4px 0;
+  min-width: 95px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  transition: all 0.2s ease-in-out;
+  z-index: 50;
+}
+
+.language-dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.language-dropdown li:hover {
+  background: #f3f4f6;
+}
+
+.language-dropdown li.active {
+  font-weight: bold;
+}
+
+/* Dark mode dropdown */
+body.dark .language-dropdown {
+  background: var(--card-dark);
+  color: var(--text-dark);
+}
+
+body.dark .language-dropdown li:hover {
+  background: #334155;
+}
