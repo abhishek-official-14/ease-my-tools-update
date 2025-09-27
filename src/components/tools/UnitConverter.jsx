@@ -360,7 +360,6 @@ import '../../styles/tools/unitconverter.css';
 
 
 
-
 const UnitConverter = () => {
     const { t } = useLanguage();
     const { theme } = useTheme();
@@ -370,84 +369,6 @@ const UnitConverter = () => {
     const [inputValue, setInputValue] = useState('');
     const [result, setResult] = useState('');
     const [isConverting, setIsConverting] = useState(false);
-
-    // Default categories in case translation fails
-    const defaultCategories = {
-        length: 'Length',
-        weight: 'Weight',
-        temperature: 'Temperature',
-        area: 'Area',
-        volume: 'Volume',
-        speed: 'Speed'
-    };
-
-    // Default units in case translation fails
-    const defaultUnits = {
-        length: {
-            meter: 'Meter',
-            kilometer: 'Kilometer',
-            centimeter: 'Centimeter',
-            millimeter: 'Millimeter',
-            mile: 'Mile',
-            yard: 'Yard',
-            foot: 'Foot',
-            inch: 'Inch'
-        },
-        weight: {
-            kilogram: 'Kilogram',
-            gram: 'Gram',
-            milligram: 'Milligram',
-            pound: 'Pound',
-            ounce: 'Ounce'
-        },
-        temperature: {
-            celsius: 'Celsius',
-            fahrenheit: 'Fahrenheit',
-            kelvin: 'Kelvin'
-        },
-        area: {
-            squareMeter: 'Square Meter',
-            squareKilometer: 'Square Kilometer',
-            squareMile: 'Square Mile',
-            squareYard: 'Square Yard',
-            squareFoot: 'Square Foot',
-            acre: 'Acre',
-            hectare: 'Hectare'
-        },
-        volume: {
-            liter: 'Liter',
-            milliliter: 'Milliliter',
-            gallon: 'Gallon',
-            quart: 'Quart',
-            pint: 'Pint',
-            cubicMeter: 'Cubic Meter',
-            cubicFoot: 'Cubic Foot'
-        },
-        speed: {
-            meterPerSecond: 'Meter/Second',
-            kilometerPerHour: 'Kilometer/Hour',
-            milePerHour: 'Mile/Hour',
-            knot: 'Knot'
-        }
-    };
-
-    // Safe translation function with fallbacks
-    const safeT = (key, fallback = '') => {
-        try {
-            const translation = t(key);
-            return translation && typeof translation === 'object' ? translation : (translation || fallback);
-        } catch (error) {
-            console.warn(`Translation error for key: ${key}`, error);
-            return fallback;
-        }
-    };
-
-    // Get categories with fallback
-    const getCategories = () => {
-      //@ts-ignore
-        const categories = safeT('unitConverter.categories', defaultCategories);
-        return typeof categories === 'object' ? categories : defaultCategories;
-    };
 
     // Unit conversion formulas
     const conversionFormulas = {
@@ -511,31 +432,32 @@ const UnitConverter = () => {
         }
     };
 
-    const getUnits = () => {
-        let units;
-        try {
-            units = safeT(`unitConverter.units.${category}`, defaultUnits[category]);
-            if (typeof units === 'string') {
-                units = defaultUnits[category];
-            }
-        } catch (error) {
-            units = defaultUnits[category] || {};
-        }
+    // Get categories for the current language
+    const getCategories = () => {
+        const categories = {};
+        const categoryKeys = ['length', 'weight', 'temperature', 'area', 'volume', 'speed'];
+        
+        categoryKeys.forEach(key => {
+            categories[key] = t('unitConverter', `categories.${key}`) || 
+                            (key.charAt(0).toUpperCase() + key.slice(1));
+        });
+        
+        return categories;
+    };
 
+    // Get units for the current category and language
+    const getUnits = () => {
         const unitKeys = Object.keys(conversionFormulas[category] || {});
         return unitKeys.map(key => ({
             value: key,
-            label: units[key] || key.charAt(0).toUpperCase() + key.slice(1)
+            label: t('unitConverter', `units.${category}.${key}`) || 
+                  (key.charAt(0).toUpperCase() + key.slice(1))
         }));
     };
 
+    // Get label for a specific unit
     const getUnitLabel = (unitKey) => {
-        try {
-            const label = safeT(`unitConverter.units.${category}.${unitKey}`, '');
-            return label || defaultUnits[category]?.[unitKey] || unitKey;
-        } catch (error) {
-            return defaultUnits[category]?.[unitKey] || unitKey;
-        }
+        return t('unitConverter', `units.${category}.${unitKey}`) || unitKey;
     };
 
     const convertUnits = () => {
@@ -602,8 +524,8 @@ const UnitConverter = () => {
     return (
         <div className={`unit-converter ${theme}`}>
             <div className="converter-header">
-                <h1>{safeT('unitConverter.title', 'Unit Converter')}</h1>
-                <p>{safeT('unitConverter.subtitle', 'Convert between different units instantly')}</p>
+                <h1>{t('unitConverter', 'title') || 'Unit Converter'}</h1>
+                <p>{t('unitConverter', 'subtitle') || 'Convert between different units instantly'}</p>
             </div>
 
             <div className="converter-container">
@@ -623,13 +545,13 @@ const UnitConverter = () => {
                 {/* Conversion Interface */}
                 <div className="conversion-interface">
                     <div className="input-section">
-                        <label>{safeT('unitConverter.from', 'From')}</label>
+                        <label>{t('unitConverter', 'from') || 'From'}</label>
                         <div className="input-group">
                             <input
                                 type="number"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
-                                placeholder={safeT('unitConverter.enterValue', 'Enter value')}
+                                placeholder={t('unitConverter', 'enterValue') || 'Enter value'}
                                 className="value-input"
                             />
                             <select
@@ -650,21 +572,21 @@ const UnitConverter = () => {
                     <button 
                         className="swap-btn" 
                         onClick={swapUnits} 
-                        title={safeT('unitConverter.swap', 'Swap')}
+                        title={t('unitConverter', 'swap') || 'Swap'}
                         disabled={!units.length}
                     >
                         ⇄
                     </button>
 
                     <div className="output-section">
-                        <label>{safeT('unitConverter.to', 'To')}</label>
+                        <label>{t('unitConverter', 'to') || 'To'}</label>
                         <div className="input-group">
                             <input
                                 type="text"
                                 value={result || ''}
                                 readOnly
                                 className="result-input"
-                                placeholder={safeT('unitConverter.result', 'Result')}
+                                placeholder={t('unitConverter', 'result') || 'Result'}
                             />
                             <select
                                 value={toUnit}
@@ -685,7 +607,7 @@ const UnitConverter = () => {
                 {/* Result Display */}
                 {result && result !== 'Error' && (
                     <div className="result-display">
-                        <h3>{safeT('unitConverter.result', 'Result')}:</h3>
+                        <h3>{t('unitConverter', 'result') || 'Result'}:</h3>
                         <p>
                             {inputValue} {getUnitLabel(fromUnit)} = 
                             <strong> {result} {getUnitLabel(toUnit)}</strong>
@@ -695,13 +617,13 @@ const UnitConverter = () => {
 
                 {result === 'Error' && (
                     <div className="error-display">
-                        <p>⚠️ {safeT('unitConverter.convert', 'Conversion error. Please check your input.')}</p>
+                        <p>⚠️ {t('unitConverter', 'convert') || 'Conversion error. Please check your input.'}</p>
                     </div>
                 )}
 
                 {isConverting && (
                     <div className="loading-display">
-                        <p>⏳ Converting...</p>
+                        <p>⏳ {t('unitConverter', 'converting') || 'Converting...'}</p>
                     </div>
                 )}
             </div>
