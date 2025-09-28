@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import ImageResizer from "./components/tools/ImageResizer";
 import UnitConverter from "./components/tools/UnitConverter";
 import LanguageSelector from "./components/LanguageSelector";
+import CaseConverter from "./components/tools/CaseConverter";
+import WordCounter from "./components/tools/WordCounter";
 
 function App() {
   const { theme } = useTheme();
@@ -27,6 +29,8 @@ function App() {
       </Router>
       <ImageResizer></ImageResizer>
       <UnitConverter></UnitConverter>
+      <CaseConverter></CaseConverter>
+      <WordCounter></WordCounter>
       <Footer></Footer>
     </>
   );
