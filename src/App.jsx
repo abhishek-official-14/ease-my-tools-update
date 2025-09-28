@@ -11,6 +11,9 @@ import UnitConverter from "./components/tools/UnitConverter";
 import LanguageSelector from "./components/LanguageSelector";
 import CaseConverter from "./components/tools/CaseConverter";
 import WordCounter from "./components/tools/WordCounter";
+import JSONFormatter from "./components/tools/JSONFormatter";
+import ColorPicker from "./components/tools/ColorPicker";
+import QRCodeGenerator from "./components/tools/QRCodeGenerator";
 
 function App() {
   const { theme } = useTheme();
@@ -31,6 +34,9 @@ function App() {
       <UnitConverter></UnitConverter>
       <CaseConverter></CaseConverter>
       <WordCounter></WordCounter>
+      <JSONFormatter></JSONFormatter>
+      <ColorPicker></ColorPicker>
+      <QRCodeGenerator></QRCodeGenerator>
       <Footer></Footer>
     </>
   );
