@@ -1,0 +1,13 @@
+{
+    "title": "Word Counter",
+    "subtitle": "Count words, characters, and more in your text",
+    "placeholder": "Start typing or paste your text here...",
+    "words": "Words",
+    "characters": "Characters",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "sentences": "Sentences",
+    "paragraphs": "Paragraphs",
+    "readingTime": "Reading Time (minutes)",
+    "copy": "Copy Text",
+    "clear": "Clear Text"
+}

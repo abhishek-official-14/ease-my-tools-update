@@ -1,60 +1,23 @@
-// import React, { useState } from "react";
-// import { useTheme } from "../contexts/ThemeContext"; // your theme context
-
-// export default function LanguageSelector() {
-//     const [open, setOpen] = useState(false);
-//     const [selected, setSelected] = useState("English");
-//     const { theme } = useTheme();
-
-//     const languages = ["English", "हिन्दी"];
-
-//     return (
-//         <div
-//             className={`language-selector ${theme}`}
-//             onMouseEnter={() => setOpen(true)}
-//             onMouseLeave={() => setOpen(false)}
-//         >
-//             <button className="language-btn">
-//                 🌐 {selected}
-//                 <span className="arrow">▼</span>
-//             </button>
-
-//             {open && (
-//                 <ul className="language-dropdown">
-//                     {languages.map((lang) => (
-//                         <li
-//                             key={lang}
-//                             className={selected === lang ? "active" : ""}
-//                             onClick={() => {
-//                                 setSelected(lang);
-//                                 setOpen(false);
-//                             }}
-//                         >
-//                             {lang}
-//                         </li>
-//                     ))}
-//                 </ul>
-//             )}
-//         </div>
-//     );
-// }
-
-
 import React, { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 export default function LanguageSelector() {
     const [open, setOpen] = useState(false);
     const { theme } = useTheme();
-    const { language, setLanguage } = useLanguage();
+    const { i18n } = useTranslation();
 
     const languages = [
         { code: "en", label: "English" },
         { code: "hi", label: "हिन्दी" }
     ];
 
-    const selectedLang = languages.find((l) => l.code === language);
+    const currentLang = i18n.language || "en";
+
+    const changeLanguage = (code) => {
+        i18n.changeLanguage(code);
+        setOpen(false);
+    };
 
     return (
         <div
@@ -63,7 +26,7 @@ export default function LanguageSelector() {
             onMouseLeave={() => setOpen(false)}
         >
             <button className="language-btn">
-                🌐 {selectedLang?.label}
+                🌐 {languages.find((l) => l.code === currentLang)?.label}
                 <span className="arrow">▼</span>
             </button>
 
@@ -72,11 +35,8 @@ export default function LanguageSelector() {
                     {languages.map((lang) => (
                         <li
                             key={lang.code}
-                            className={language === lang.code ? "active" : ""}
-                            onClick={() => {
-                                setLanguage(lang.code);
-                                setOpen(false);
-                            }}
+                            className={currentLang === lang.code ? "active" : ""}
+                            onClick={() => changeLanguage(lang.code)}
                         >
                             {lang.label}
                         </li>
@@ -86,4 +46,3 @@ export default function LanguageSelector() {
         </div>
     );
 }
-

@@ -4,12 +4,10 @@ import App from "./App.jsx";
 
 import "./index.css";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
-import { LanguageProvider } from "./contexts/LanguageContext.jsx";
+import "./i18n";
 
 createRoot(document.getElementById("root")).render(
-  <LanguageProvider>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </LanguageProvider>
 );

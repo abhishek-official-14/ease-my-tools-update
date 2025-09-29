@@ -8,12 +8,14 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import ImageResizer from "./components/tools/ImageResizer";
 import UnitConverter from "./components/tools/UnitConverter";
-import LanguageSelector from "./components/LanguageSelector";
 import CaseConverter from "./components/tools/CaseConverter";
 import WordCounter from "./components/tools/WordCounter";
 import JSONFormatter from "./components/tools/JSONFormatter";
 import ColorPicker from "./components/tools/ColorPicker";
 import QRCodeGenerator from "./components/tools/QRCodeGenerator";
+import MarkdownPreviewer from "./components/MarkdownPreviewer";
+import TextDiffChecker from "./components/tools/TextDiffChecker";
+import QRCodeTool from "./components/tools/QRCodeTool";
 
 function App() {
   const { theme } = useTheme();
@@ -37,6 +39,9 @@ function App() {
       <JSONFormatter></JSONFormatter>
       <ColorPicker></ColorPicker>
       <QRCodeGenerator></QRCodeGenerator>
+      <MarkdownPreviewer></MarkdownPreviewer>
+      <TextDiffChecker></TextDiffChecker>
+      <QRCodeTool></QRCodeTool>
       <Footer></Footer>
     </>
   );

@@ -17,6 +17,6 @@
     "target": "es6",
     "module": "commonjs"
   },
-  "include": ["src"],
+  "include": ["src","*.d.ts"],
   "exclude": ["node_modules", "build"]
 }

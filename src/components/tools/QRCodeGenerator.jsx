@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/QRCodeGenerator.css';
 
 const QRCodeGenerator = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation('qrGenerator'); // namespace for QR generator
     const { theme } = useTheme();
     const [text, setText] = useState('');
     const [qrCodeUrl, setQrCodeUrl] = useState('');
@@ -14,16 +14,13 @@ const QRCodeGenerator = () => {
 
     const generateQRCode = () => {
         if (!text.trim()) {
-            alert(t('qrGenerator', 'enterText') || 'Please enter some text or URL');
+            alert(t('enterText', 'Please enter some text or URL'));
             return;
         }
 
         setIsGenerating(true);
-        
-        // Using QRServer API
         const encodedText = encodeURIComponent(text);
         const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodedText}&size=${size}x${size}&format=png`;
-        
         setQrCodeUrl(qrUrl);
         setIsGenerating(false);
     };
@@ -53,33 +50,34 @@ const QRCodeGenerator = () => {
             const blob = await response.blob();
             const item = new ClipboardItem({ 'image/png': blob });
             await navigator.clipboard.write([item]);
-            alert(t('qrGenerator', 'copied') || 'QR Code copied to clipboard!');
+            alert(t('copied', 'QR Code copied to clipboard!'));
         } catch (err) {
             console.error('Failed to copy QR code:', err);
-            alert(t('qrGenerator', 'copyError') || 'Failed to copy QR code');
+            alert(t('copyError', 'Failed to copy QR code'));
         }
     };
 
     return (
         <div className={`qr-generator ${theme}`}>
             <div className="generator-header">
-                <h1>{t('qrGenerator', 'title') || 'QR Code Generator'}</h1>
-                <p>{t('qrGenerator', 'subtitle') || 'Generate QR codes from text, URLs, or any data'}</p>
+                <h1>{t('title', 'QR Code Generator')}</h1>
+                <p>{t('subtitle', 'Generate QR codes from text, URLs, or any data')}</p>
             </div>
 
             <div className="generator-container">
                 <div className="input-section">
-                    <label>{t('qrGenerator', 'inputLabel') || 'Enter Text or URL'}</label>
+                    <label>{t('inputLabel', 'Enter Text or URL')}</label>
                     <textarea
                         value={text}
                         onChange={(e) => setText(e.target.value)}
-                        placeholder={t('qrGenerator', 'placeholder') || 'Enter text, URL, or any data to generate QR code...'}
+                        placeholder={t('placeholder', 'Enter text, URL, or any data to generate QR code...')}
                         className="text-input"
+                        // @ts-ignore
                         rows="4"
                     />
-                    
+
                     <div className="size-control">
-                        <label>{t('qrGenerator', 'size') || 'QR Code Size'}: {size}px</label>
+                        <label>{t('size', 'QR Code Size')}: {size}px</label>
                         <input
                             type="range"
                             min="100"
@@ -92,50 +90,47 @@ const QRCodeGenerator = () => {
                 </div>
 
                 <div className="action-buttons">
-                    <button 
-                        onClick={generateQRCode} 
+                    <button
+                        onClick={generateQRCode}
                         className="generate-btn"
                         disabled={isGenerating}
                     >
-                        {isGenerating 
-                            ? (t('qrGenerator', 'generating') || 'Generating...') 
-                            : (t('qrGenerator', 'generate') || 'Generate QR Code')
-                        }
+                        {isGenerating ? t('generating', 'Generating...') : t('generate', 'Generate QR Code')}
                     </button>
                     <button onClick={clearAll} className="clear-btn">
-                        {t('qrGenerator', 'clear') || 'Clear'}
+                        {t('clear', 'Clear')}
                     </button>
                 </div>
 
                 {qrCodeUrl && (
                     <div className="output-section">
-                        <h3>{t('qrGenerator', 'qrCode') || 'Your QR Code'}</h3>
+                        <h3>{t('qrCode', 'Your QR Code')}</h3>
                         <div className="qr-code-container">
-                            <img 
-                                src={qrCodeUrl} 
+                            <img
+                                src={qrCodeUrl}
                                 alt="Generated QR Code"
                                 className="qr-code-image"
                             />
                         </div>
-                        
+
                         <div className="output-actions">
                             <button onClick={downloadQRCode} className="download-btn">
-                                {t('qrGenerator', 'download') || 'Download PNG'}
+                                {t('download', 'Download PNG')}
                             </button>
                             <button onClick={copyToClipboard} className="copy-btn">
-                                {t('qrGenerator', 'copy') || 'Copy to Clipboard'}
+                                {t('copy', 'Copy to Clipboard')}
                             </button>
                         </div>
                     </div>
                 )}
 
                 <div className="tips-section">
-                    <h4>{t('qrGenerator', 'tips') || 'Tips'}:</h4>
+                    <h4>{t('tips', 'Tips')}:</h4>
                     <ul>
-                        <li>{t('qrGenerator', 'tip1') || 'Enter URLs to create QR codes that open websites'}</li>
-                        <li>{t('qrGenerator', 'tip2') || 'Enter text messages for sharing contact information'}</li>
-                        <li>{t('qrGenerator', 'tip3') || 'Use WiFi format for sharing WiFi credentials'}</li>
-                        <li>{t('qrGenerator', 'tip4') || 'Larger sizes work better for printing'}</li>
+                        <li>{t('tip1', 'Enter URLs to create QR codes that open websites')}</li>
+                        <li>{t('tip2', 'Enter text messages for sharing contact information')}</li>
+                        <li>{t('tip3', 'Use WiFi format for sharing WiFi credentials')}</li>
+                        <li>{t('tip4', 'Larger sizes work better for printing')}</li>
                     </ul>
                 </div>
             </div>

@@ -148,7 +148,7 @@ body.dark .language-btn {
 /* Dropdown */
 .language-dropdown {
   position: absolute;
-  bottom: 105%;
+  bottom: 100%;
   left: 0;
   background: var(--bg-light);
   color: var(--text-light);
