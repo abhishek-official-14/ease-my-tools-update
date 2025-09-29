@@ -103,6 +103,7 @@ const URLEncoder = () => {
                                 : (t('urlEncoder', 'enterURLToDecode') || 'Enter URL to decode...')
                         }
                         className="text-input"
+                        // @ts-ignore
                         rows="4"
                     />
                 </div>

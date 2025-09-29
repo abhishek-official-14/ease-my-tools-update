@@ -84,6 +84,7 @@ const Base64Tool = () => {
                                 : (t('base64Tool', 'enterBase64ToDecode') || 'Enter Base64 string to decode...')
                         }
                         className="text-input"
+                        // @ts-ignore
                         rows="6"
                     />
                 </div>

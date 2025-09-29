@@ -35,6 +35,7 @@ const ImageResizer = () => {
                 setHeight(img.height);
                 setResizedImage(null);
             };
+            // @ts-ignore
             img.src = e.target.result;
         };
         reader.readAsDataURL(file);

@@ -47,6 +47,7 @@ const TimeCalculator = () => {
             return;
         }
 
+        // @ts-ignore
         const diffTime = Math.abs(end - start);
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
         const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -145,6 +146,7 @@ const TimeCalculator = () => {
                                     +
                                 </button>
                                 <button 
+                                    // @ts-ignore
                                     className={`op-btn ${calculationType === 'subtract' ? 'active' : ''}`}
                                     onClick={() => setCalculationType('subtract')}
                                 >

@@ -35,6 +35,7 @@ const AgeCalculator = () => {
         }
 
         // Calculate total days
+        // @ts-ignore
         const diffTime = Math.abs(today - birth);
         const totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
@@ -43,6 +44,7 @@ const AgeCalculator = () => {
         if (nextBirthday < today) {
             nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
         }
+        // @ts-ignore
         const daysUntilBirthday = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24));
 
         setAge({

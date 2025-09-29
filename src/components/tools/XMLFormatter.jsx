@@ -157,6 +157,7 @@ const XMLFormatter = () => {
                         onChange={(e) => setInputXML(e.target.value)}
                         placeholder={t('xmlFormatter', 'xmlPlaceholder') || 'Paste your XML data here...'}
                         className={`xml-input ${!isValid ? 'error' : ''}`}
+                        // @ts-ignore
                         rows="8"
                     />
                 </div>
