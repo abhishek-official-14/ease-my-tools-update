@@ -16,6 +16,8 @@ import QRCodeGenerator from "./components/tools/QRCodeGenerator";
 import MarkdownPreviewer from "./components/MarkdownPreviewer";
 import TextDiffChecker from "./components/tools/TextDiffChecker";
 import QRCodeTool from "./components/tools/QRCodeTool";
+import CurrencyConverter from "./components/tools/CurrencyConverter";
+import Base64Converter from "./components/tools/Base64Converter";
 
 function App() {
   const { theme } = useTheme();
@@ -42,6 +44,8 @@ function App() {
       <MarkdownPreviewer></MarkdownPreviewer>
       <TextDiffChecker></TextDiffChecker>
       <QRCodeTool></QRCodeTool>
+      <CurrencyConverter></CurrencyConverter>
+      <Base64Converter></Base64Converter>
       <Footer></Footer>
     </>
   );

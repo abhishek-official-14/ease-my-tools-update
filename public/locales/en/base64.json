@@ -1,0 +1,12 @@
+{
+    "title": "🔤 Base64 Converter",
+    "encode": "Encode",
+    "decode": "Decode",
+    "inputPlaceholder": "Enter text to encode/decode...",
+    "outputPlaceholder": "Result will appear here...",
+    "downloadText": "📥 Download as File",
+    "copy": "📋 Copy",
+    "clear": "🗑️ Clear",
+    "fileSupport": "Supports text and files",
+    "dragDrop": "📂 Drag & drop a file here or click to browse"
+}
