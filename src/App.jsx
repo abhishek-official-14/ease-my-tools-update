@@ -14,6 +14,7 @@ import WordCounter from "./components/tools/WordCounter";
 import JSONFormatter from "./components/tools/JSONFormatter";
 import ColorPicker from "./components/tools/ColorPicker";
 import QRCodeGenerator from "./components/tools/QRCodeGenerator";
+import PercentageCalculator from "./components/tools/PercentageCalculator";
 
 function App() {
   const { theme } = useTheme();
@@ -37,6 +38,7 @@ function App() {
       <JSONFormatter></JSONFormatter>
       <ColorPicker></ColorPicker>
       <QRCodeGenerator></QRCodeGenerator>
+      <PercentageCalculator></PercentageCalculator>
       <Footer></Footer>
     </>
   );

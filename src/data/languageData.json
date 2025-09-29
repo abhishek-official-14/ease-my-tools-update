@@ -182,7 +182,77 @@
                     "knot": "Knot"
                 }
             }
-        }
+        },
+        "caseConverter": {
+    "title": "Text Case Converter",
+    "subtitle": "Convert text between different cases instantly",
+    "inputLabel": "Input Text",
+    "inputPlaceholder": "Enter your text here...",
+    "outputLabel": "Converted Text",
+    "outputPlaceholder": "Converted text will appear here...",
+    "upperCase": "UPPERCASE",
+    "lowerCase": "lowercase",
+    "sentenceCase": "Sentence case",
+    "titleCase": "Title Case",
+    "clear": "Clear",
+    "copy": "Copy to Clipboard",
+    "characters": "Characters",
+    "words": "Words"
+},
+"wordCounter": {
+    "title": "Word Counter",
+    "subtitle": "Count words, characters, and more in your text",
+    "placeholder": "Start typing or paste your text here...",
+    "words": "Words",
+    "characters": "Characters",
+    "charactersNoSpaces": "Characters (no spaces)",
+    "sentences": "Sentences",
+    "paragraphs": "Paragraphs",
+    "readingTime": "Reading Time (minutes)",
+    "copy": "Copy Text",
+    "clear": "Clear Text"
+},
+"jsonFormatter": {
+    "title": "JSON Formatter",
+    "subtitle": "Format, validate, and minify JSON data",
+    "inputLabel": "Input JSON",
+    "inputPlaceholder": "Paste your JSON here...",
+    "outputLabel": "Formatted JSON",
+    "format": "Format JSON",
+    "minify": "Minify JSON",
+    "validate": "Validate JSON",
+    "clear": "Clear All",
+    "copy": "Copy to Clipboard"
+},
+"colorPicker": {
+    "title": "Color Picker",
+    "subtitle": "Pick colors and get their values in different formats",
+    "selectColor": "Select Color",
+    "colorValues": "Color Values",
+    "clickToCopy": "Click to copy",
+    "recentColors": "Recent Colors"
+},
+"qrGenerator": {
+    "title": "QR Code Generator",
+    "subtitle": "Generate QR codes from text, URLs, or any data",
+    "inputLabel": "Enter Text or URL",
+    "placeholder": "Enter text, URL, or any data to generate QR code...",
+    "size": "QR Code Size",
+    "generate": "Generate QR Code",
+    "generating": "Generating...",
+    "clear": "Clear",
+    "qrCode": "Your QR Code",
+    "download": "Download PNG",
+    "copy": "Copy to Clipboard",
+    "enterText": "Please enter some text or URL",
+    "copied": "QR Code copied to clipboard!",
+    "copyError": "Failed to copy QR code",
+    "tips": "Tips",
+    "tip1": "Enter URLs to create QR codes that open websites",
+    "tip2": "Enter text messages for sharing contact information",
+    "tip3": "Use WiFi format for sharing WiFi credentials",
+    "tip4": "Larger sizes work better for printing"
+}
     },
     "hi": {
         "header": {
@@ -367,76 +437,7 @@
                     "knot": "नॉट"
                 }
             }
-        },
-        "caseConverter": {
-    "title": "Text Case Converter",
-    "subtitle": "Convert text between different cases instantly",
-    "inputLabel": "Input Text",
-    "inputPlaceholder": "Enter your text here...",
-    "outputLabel": "Converted Text",
-    "outputPlaceholder": "Converted text will appear here...",
-    "upperCase": "UPPERCASE",
-    "lowerCase": "lowercase",
-    "sentenceCase": "Sentence case",
-    "titleCase": "Title Case",
-    "clear": "Clear",
-    "copy": "Copy to Clipboard",
-    "characters": "Characters",
-    "words": "Words"
-},
-"wordCounter": {
-    "title": "Word Counter",
-    "subtitle": "Count words, characters, and more in your text",
-    "placeholder": "Start typing or paste your text here...",
-    "words": "Words",
-    "characters": "Characters",
-    "charactersNoSpaces": "Characters (no spaces)",
-    "sentences": "Sentences",
-    "paragraphs": "Paragraphs",
-    "readingTime": "Reading Time (minutes)",
-    "copy": "Copy Text",
-    "clear": "Clear Text"
-},
-"jsonFormatter": {
-    "title": "JSON Formatter",
-    "subtitle": "Format, validate, and minify JSON data",
-    "inputLabel": "Input JSON",
-    "inputPlaceholder": "Paste your JSON here...",
-    "outputLabel": "Formatted JSON",
-    "format": "Format JSON",
-    "minify": "Minify JSON",
-    "validate": "Validate JSON",
-    "clear": "Clear All",
-    "copy": "Copy to Clipboard"
-},
-"colorPicker": {
-    "title": "Color Picker",
-    "subtitle": "Pick colors and get their values in different formats",
-    "selectColor": "Select Color",
-    "colorValues": "Color Values",
-    "clickToCopy": "Click to copy",
-    "recentColors": "Recent Colors"
-},
-"qrGenerator": {
-    "title": "QR Code Generator",
-    "subtitle": "Generate QR codes from text, URLs, or any data",
-    "inputLabel": "Enter Text or URL",
-    "placeholder": "Enter text, URL, or any data to generate QR code...",
-    "size": "QR Code Size",
-    "generate": "Generate QR Code",
-    "generating": "Generating...",
-    "clear": "Clear",
-    "qrCode": "Your QR Code",
-    "download": "Download PNG",
-    "copy": "Copy to Clipboard",
-    "enterText": "Please enter some text or URL",
-    "copied": "QR Code copied to clipboard!",
-    "copyError": "Failed to copy QR code",
-    "tips": "Tips",
-    "tip1": "Enter URLs to create QR codes that open websites",
-    "tip2": "Enter text messages for sharing contact information",
-    "tip3": "Use WiFi format for sharing WiFi credentials",
-    "tip4": "Larger sizes work better for printing"
-}
+        }
+        
     }
 }
