@@ -1,10 +1,12 @@
 //@ts-nocheck
 import React, { useState, useRef } from "react";
 import "../../styles/tools/imageresizer.css";
-import { useTheme } from "../../contexts/ThemeContext"; // global theme
+import { useTheme } from "../../contexts/ThemeContext";
+import { useTranslation } from "react-i18next"; // new i18n hook
 
 const ImageResizer = () => {
-  const { theme } = useTheme(); // global light/dark
+  const { theme } = useTheme();
+  const { t } = useTranslation("imageResizer"); // namespace for translations
   const [image, setImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
   const [width, setWidth] = useState("");
@@ -14,7 +16,6 @@ const ImageResizer = () => {
   const [originalRatio, setOriginalRatio] = useState(null);
   const fileInputRef = useRef(null);
 
-  // 📌 Handle File Upload
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file && file.type.startsWith("image/")) {
@@ -34,7 +35,6 @@ const ImageResizer = () => {
     }
   };
 
-  // 📌 Drag & Drop
   const handleDrop = (e) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
@@ -43,7 +43,6 @@ const ImageResizer = () => {
     }
   };
 
-  // 📌 Maintain Aspect Ratio
   const handleWidthChange = (e) => {
     const newWidth = e.target.value;
     setWidth(newWidth);
@@ -60,7 +59,6 @@ const ImageResizer = () => {
     }
   };
 
-  // 📌 Download Resized Image
   const handleResize = () => {
     if (!image) return;
 
@@ -82,7 +80,7 @@ const ImageResizer = () => {
 
   return (
     <div className={`image-resizer-container ${theme}`}>
-      <h2 className="title">✨ Image Resizer</h2>
+      <h2 className="title">{t("title", "✨ Image Resizer")}</h2>
 
       {/* Upload Section */}
       <div
@@ -94,7 +92,10 @@ const ImageResizer = () => {
         {previewUrl ? (
           <img src={previewUrl} alt="preview" className="preview-img" />
         ) : (
-          <p>📂 Drag & Drop image here or <span>Browse</span></p>
+          <p>
+            {t("dragDrop", "📂 Drag & Drop image here or ")}
+            <span>{t("browse", "Browse")}</span>
+          </p>
         )}
         <input
           type="file"
@@ -109,20 +110,12 @@ const ImageResizer = () => {
       {image && (
         <div className="controls">
           <div className="input-group">
-            <label>Width</label>
-            <input
-              type="number"
-              value={width}
-              onChange={handleWidthChange}
-            />
+            <label>{t("width", "Width")}</label>
+            <input type="number" value={width} onChange={handleWidthChange} />
           </div>
           <div className="input-group">
-            <label>Height</label>
-            <input
-              type="number"
-              value={height}
-              onChange={handleHeightChange}
-            />
+            <label>{t("height", "Height")}</label>
+            <input type="number" value={height} onChange={handleHeightChange} />
           </div>
 
           <div className="options">
@@ -132,7 +125,7 @@ const ImageResizer = () => {
                 checked={keepRatio}
                 onChange={() => setKeepRatio(!keepRatio)}
               />
-              Keep Aspect Ratio 🔒
+              {t("keepRatio", "Keep Aspect Ratio 🔒")}
             </label>
 
             <select value={format} onChange={(e) => setFormat(e.target.value)}>
@@ -143,7 +136,7 @@ const ImageResizer = () => {
           </div>
 
           <button className="resize-btn" onClick={handleResize}>
-            🚀 Download Resized Image
+            {t("download", "🚀 Download Resized Image")}
           </button>
         </div>
       )}

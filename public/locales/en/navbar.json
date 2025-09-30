@@ -1,0 +1,78 @@
+{
+    "logo": "EaseMyTools",
+    "actions": {
+        "signin": "Sign In",
+        "dark": "🌙 Dark",
+        "light": "☀️ Light"
+    },
+    "menus": [
+        {
+            "title": "PDF",
+            "items": [
+                {
+                    "label": "Merge PDF",
+                    "icon": "📑"
+                },
+                {
+                    "label": "Split PDF",
+                    "icon": "✂️"
+                },
+                {
+                    "label": "Compress PDF",
+                    "icon": "📉"
+                }
+            ]
+        },
+        {
+            "title": "Image",
+            "items": [
+                {
+                    "label": "Remove BG",
+                    "icon": "🖼️"
+                },
+                {
+                    "label": "Resize",
+                    "icon": "📏"
+                },
+                {
+                    "label": "Convert",
+                    "icon": "🔄"
+                }
+            ]
+        },
+        {
+            "title": "Video",
+            "items": [
+                {
+                    "label": "Compress",
+                    "icon": "🎥"
+                },
+                {
+                    "label": "Mute",
+                    "icon": "🔇"
+                },
+                {
+                    "label": "Convert",
+                    "icon": "🔄"
+                }
+            ]
+        },
+        {
+            "title": "File",
+            "items": [
+                {
+                    "label": "Split Excel",
+                    "icon": "📊"
+                },
+                {
+                    "label": "Word → PDF",
+                    "icon": "📝"
+                },
+                {
+                    "label": "PPT → PDF",
+                    "icon": "📽️"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "title": "Text Case Converter",
+    "subtitle": "Convert text between different cases instantly",
+    "inputLabel": "Input Text",
+    "inputPlaceholder": "Enter your text here...",
+    "outputLabel": "Converted Text",
+    "outputPlaceholder": "Converted text will appear here...",
+    "upperCase": "UPPERCASE",
+    "lowerCase": "lowercase",
+    "sentenceCase": "Sentence case",
+    "titleCase": "Title Case",
+    "clear": "Clear",
+    "copy": "Copy to Clipboard",
+    "characters": "Characters",
+    "words": "Words"
+}

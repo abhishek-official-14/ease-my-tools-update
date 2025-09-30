@@ -1,0 +1,21 @@
+{
+    "title": "QR Code Generator",
+    "subtitle": "Generate QR codes from text, URLs, or any data",
+    "inputLabel": "Enter Text or URL",
+    "placeholder": "Enter text, URL, or any data to generate QR code...",
+    "size": "QR Code Size",
+    "generate": "Generate QR Code",
+    "generating": "Generating...",
+    "clear": "Clear",
+    "qrCode": "Your QR Code",
+    "download": "Download PNG",
+    "copy": "Copy to Clipboard",
+    "enterText": "Please enter some text or URL",
+    "copied": "QR Code copied to clipboard!",
+    "copyError": "Failed to copy QR code",
+    "tips": "Tips",
+    "tip1": "Enter URLs to create QR codes that open websites",
+    "tip2": "Enter text messages for sharing contact information",
+    "tip3": "Use WiFi format for sharing WiFi credentials",
+    "tip4": "Larger sizes work better for printing"
+}

@@ -1,0 +1,65 @@
+.currency-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: var(--card-light);
+    color: var(--text-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+body.dark .currency-container {
+    background: var(--card-dark);
+    color: var(--text-dark);
+}
+
+.currency-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.currency-inputs input,
+.currency-inputs select,
+.currency-inputs button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.currency-inputs select {
+    min-width: 80px;
+}
+
+.currency-inputs button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+}
+
+.currency-inputs button:hover {
+    background: #2563eb;
+}
+
+.arrow {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.result {
+    font-size: 18px;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.status {
+    font-size: 15px;
+    color: #6b7280;
+}

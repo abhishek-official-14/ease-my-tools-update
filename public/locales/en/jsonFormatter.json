@@ -1,0 +1,12 @@
+{
+    "title": "JSON Formatter",
+    "subtitle": "Format, validate, and minify JSON data",
+    "inputLabel": "Input JSON",
+    "inputPlaceholder": "Paste your JSON here...",
+    "outputLabel": "Formatted JSON",
+    "format": "Format JSON",
+    "minify": "Minify JSON",
+    "validate": "Validate JSON",
+    "clear": "Clear All",
+    "copy": "Copy to Clipboard"
+}

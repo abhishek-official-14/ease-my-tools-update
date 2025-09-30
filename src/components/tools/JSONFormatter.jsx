@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/JSONFormatter.css';
 
 const JSONFormatter = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation("jsonFormatter"); // <-- i18next
     const { theme } = useTheme();
     const [inputJSON, setInputJSON] = useState('');
     const [formattedJSON, setFormattedJSON] = useState('');
@@ -19,10 +19,8 @@ const JSONFormatter = () => {
                 setError('');
                 return;
             }
-
             const parsed = JSON.parse(inputJSON);
-            const formatted = JSON.stringify(parsed, null, 2);
-            setFormattedJSON(formatted);
+            setFormattedJSON(JSON.stringify(parsed, null, 2));
             setIsValid(true);
             setError('');
         } catch (err) {
@@ -40,10 +38,8 @@ const JSONFormatter = () => {
                 setError('');
                 return;
             }
-
             const parsed = JSON.parse(inputJSON);
-            const minified = JSON.stringify(parsed);
-            setFormattedJSON(minified);
+            setFormattedJSON(JSON.stringify(parsed));
             setIsValid(true);
             setError('');
         } catch (err) {
@@ -60,10 +56,9 @@ const JSONFormatter = () => {
                 setError('');
                 return;
             }
-
             JSON.parse(inputJSON);
             setIsValid(true);
-            setError('Valid JSON!');
+            setError(t('jsonFormatter:valid', 'Valid JSON!'));
         } catch (err) {
             setIsValid(false);
             setError(err.message);
@@ -79,40 +74,41 @@ const JSONFormatter = () => {
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(formattedJSON);
-        alert('JSON copied to clipboard!');
+        alert(t('jsonFormatter:copied', 'JSON copied to clipboard!'));
     };
 
     return (
         <div className={`json-formatter ${theme}`}>
             <div className="formatter-header">
-                <h1>{t('jsonFormatter', 'title') || 'JSON Formatter'}</h1>
-                <p>{t('jsonFormatter', 'subtitle') || 'Format, validate, and minify JSON data'}</p>
+                <h1>{t('jsonFormatter:title', 'JSON Formatter')}</h1>
+                <p>{t('jsonFormatter:subtitle', 'Format, validate, and minify JSON data')}</p>
             </div>
 
             <div className="formatter-container">
                 <div className="input-section">
-                    <label>{t('jsonFormatter', 'inputLabel') || 'Input JSON'}</label>
+                    <label>{t('jsonFormatter:inputLabel', 'Input JSON')}</label>
                     <textarea
                         value={inputJSON}
                         onChange={(e) => setInputJSON(e.target.value)}
-                        placeholder={t('jsonFormatter', 'inputPlaceholder') || 'Paste your JSON here...'}
+                        placeholder={t('jsonFormatter:inputPlaceholder', 'Paste your JSON here...')}
                         className={`json-input ${!isValid ? 'error' : ''}`}
+                        // @ts-ignore
                         rows="8"
                     />
                 </div>
 
                 <div className="button-group">
                     <button onClick={formatJSON} className="format-btn">
-                        {t('jsonFormatter', 'format') || 'Format JSON'}
+                        {t('jsonFormatter:format', 'Format JSON')}
                     </button>
                     <button onClick={minifyJSON} className="minify-btn">
-                        {t('jsonFormatter', 'minify') || 'Minify JSON'}
+                        {t('jsonFormatter:minify', 'Minify JSON')}
                     </button>
                     <button onClick={validateJSON} className="validate-btn">
-                        {t('jsonFormatter', 'validate') || 'Validate JSON'}
+                        {t('jsonFormatter:validate', 'Validate JSON')}
                     </button>
                     <button onClick={clearAll} className="clear-btn">
-                        {t('jsonFormatter', 'clear') || 'Clear All'}
+                        {t('jsonFormatter:clear', 'Clear All')}
                     </button>
                 </div>
 
@@ -124,12 +120,10 @@ const JSONFormatter = () => {
 
                 {formattedJSON && (
                     <div className="output-section">
-                        <label>{t('jsonFormatter', 'outputLabel') || 'Formatted JSON'}</label>
-                        <pre className="json-output">
-                            {formattedJSON}
-                        </pre>
+                        <label>{t('jsonFormatter:outputLabel', 'Formatted JSON')}</label>
+                        <pre className="json-output">{formattedJSON}</pre>
                         <button onClick={copyToClipboard} className="copy-btn">
-                            {t('jsonFormatter', 'copy') || 'Copy to Clipboard'}
+                            {t('jsonFormatter:copy', 'Copy to Clipboard')}
                         </button>
                     </div>
                 )}
