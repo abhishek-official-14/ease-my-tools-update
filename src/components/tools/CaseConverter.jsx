@@ -4,7 +4,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/CaseConverter.css';
 
 const CaseConverter = () => {
-    const { t } = useTranslation(); // <-- i18next
+    const { t } = useTranslation("caseConverter"); // <-- i18next
     const { theme } = useTheme();
     const [inputText, setInputText] = useState('');
     const [convertedText, setConvertedText] = useState('');

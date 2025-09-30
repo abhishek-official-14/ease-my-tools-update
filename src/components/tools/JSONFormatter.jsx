@@ -4,7 +4,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/JSONFormatter.css';
 
 const JSONFormatter = () => {
-    const { t } = useTranslation(); // <-- i18next
+    const { t } = useTranslation("jsonFormatter"); // <-- i18next
     const { theme } = useTheme();
     const [inputJSON, setInputJSON] = useState('');
     const [formattedJSON, setFormattedJSON] = useState('');

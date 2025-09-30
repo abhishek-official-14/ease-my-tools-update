@@ -5,7 +5,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/unitconverter.css';
 
 const UnitConverter = () => {
-    const { t } = useTranslation(); // <-- i18next
+    const { t } = useTranslation("unitConverter"); // <-- i18next
     const { theme } = useTheme();
     const [category, setCategory] = useState('length');
     const [fromUnit, setFromUnit] = useState('meter');

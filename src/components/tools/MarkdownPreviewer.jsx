@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/tools/MarkdownPreviewer.css";
+import "../../styles/tools/MarkdownPreviewer.css";
 import { marked } from "marked";
 
 const MarkdownPreviewer = () => {

@@ -5,6 +5,8 @@ import { useTheme } from "../../contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
 
 const Base64Converter = () => {
+    console.log("Base64Converter was rendered");
+    
     const { theme } = useTheme();
     const { t } = useTranslation("base64");
     const [input, setInput] = useState("");

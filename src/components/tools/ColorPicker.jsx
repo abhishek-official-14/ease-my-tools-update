@@ -4,7 +4,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/ColorPicker.css';
 
 const ColorPicker = () => {
-    const { t } = useTranslation(); // <-- i18next
+    const { t } = useTranslation("colorPicker"); // <-- i18next
     const { theme } = useTheme();
     const [selectedColor, setSelectedColor] = useState('#667eea');
     const [colorHistory, setColorHistory] = useState([]);
@@ -52,14 +52,14 @@ const ColorPicker = () => {
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
-        alert(t('colorPicker:copied', `Copied: ${text}`));
+        alert(t('copied', `Copied: ${text}`));
     };
 
     return (
         <div className={`color-picker ${theme}`}>
             <div className="picker-header">
-                <h1>{t('colorPicker:title', 'Color Picker')}</h1>
-                <p>{t('colorPicker:subtitle', 'Pick colors and get their values in different formats')}</p>
+                <h1>{t('title', 'Color Picker')}</h1>
+                <p>{t('subtitle', 'Pick colors and get their values in different formats')}</p>
             </div>
 
             <div className="picker-container">
@@ -69,7 +69,7 @@ const ColorPicker = () => {
                     </div>
 
                     <div className="color-input">
-                        <label>{t('colorPicker:selectColor', 'Select Color')}</label>
+                        <label>{t('selectColor', 'Select Color')}</label>
                         <input
                             type="color"
                             value={selectedColor}
@@ -87,29 +87,29 @@ const ColorPicker = () => {
                 </div>
 
                 <div className="color-values">
-                    <h3>{t('colorPicker:colorValues', 'Color Values')}</h3>
+                    <h3>{t('colorValues', 'Color Values')}</h3>
                     <div className="value-cards">
                         <div className="value-card" onClick={() => copyToClipboard(colorValues.hex)}>
                             <div className="value-type">HEX</div>
                             <div className="value">{colorValues.hex}</div>
-                            <div className="copy-hint">{t('colorPicker:clickToCopy', 'Click to copy')}</div>
+                            <div className="copy-hint">{t('clickToCopy', 'Click to copy')}</div>
                         </div>
                         <div className="value-card" onClick={() => copyToClipboard(colorValues.rgb)}>
                             <div className="value-type">RGB</div>
                             <div className="value">{colorValues.rgb}</div>
-                            <div className="copy-hint">{t('colorPicker:clickToCopy', 'Click to copy')}</div>
+                            <div className="copy-hint">{t('clickToCopy', 'Click to copy')}</div>
                         </div>
                         <div className="value-card" onClick={() => copyToClipboard(colorValues.hsl)}>
                             <div className="value-type">HSL</div>
                             <div className="value">{colorValues.hsl}</div>
-                            <div className="copy-hint">{t('colorPicker:clickToCopy', 'Click to copy')}</div>
+                            <div className="copy-hint">{t('clickToCopy', 'Click to copy')}</div>
                         </div>
                     </div>
                 </div>
 
                 {colorHistory.length > 0 && (
                     <div className="color-history">
-                        <h3>{t('colorPicker:recentColors', 'Recent Colors')}</h3>
+                        <h3>{t('recentColors', 'Recent Colors')}</h3>
                         <div className="history-grid">
                             {colorHistory.map((color, index) => (
                                 <div

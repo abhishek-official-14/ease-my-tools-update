@@ -16,6 +16,8 @@ const CurrencyConverter = () => {
             .then((data) => {
                 if (data && data.symbols) {
                     setCurrencies(Object.keys(data.symbols));
+                    console.log(currencies);
+                    
                 }
             })
             .catch((err) => console.error("Error fetching symbols:", err));
