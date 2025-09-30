@@ -1,0 +1,16 @@
+{
+    "title": "टेक्स्ट केस कन्वर्टर",
+    "subtitle": "विभिन्न केस में टेक्स्ट तुरंत कन्वर्ट करें",
+    "inputLabel": "इनपुट टेक्स्ट",
+    "inputPlaceholder": "यहाँ अपना टेक्स्ट दर्ज करें...",
+    "outputLabel": "कन्वर्टेड टेक्स्ट",
+    "outputPlaceholder": "कन्वर्ट किया गया टेक्स्ट यहाँ दिखाई देगा...",
+    "upperCase": "UPPERCASE",
+    "lowerCase": "lowercase",
+    "sentenceCase": "वाक्य केस",
+    "titleCase": "शीर्षक केस",
+    "clear": "साफ़ करें",
+    "copy": "क्लिपबोर्ड में कॉपी करें",
+    "characters": "अक्षर",
+    "words": "शब्द"
+}

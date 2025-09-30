@@ -1,8 +1,7 @@
-/* Navbar Base */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 12px 24px;
   transition: background 0.3s, color 0.3s;
 }
@@ -17,20 +16,22 @@
   color: var(--text-dark);
 }
 
-/* Logo */
-.navbar-logo {
+.logo {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--primary);
 }
 
-/* Menu */
-.navbar-menu {
+.menu {
   display: flex;
   gap: 20px;
 }
 
-.dropbtn {
+.dropdown {
+  position: relative;
+}
+
+.trigger {
   background: none;
   border: none;
   font-size: 1.2rem;
@@ -39,12 +40,7 @@
   padding: 8px;
 }
 
-.dropdown {
-  position: relative;
-}
-
-/* Dropdown Card */
-.dropdown-card {
+.panel {
   display: none;
   position: absolute;
   top: 100%;
@@ -54,31 +50,30 @@
   border-radius: 12px;
   z-index: 99;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.2s ease-in-out;
 }
 
-.navbar.light .dropdown-card {
+.navbar.light .panel {
   background: var(--card-light);
   color: var(--text-light);
 }
 
-.navbar.dark .dropdown-card {
+.navbar.dark .panel {
   background: var(--card-dark);
   color: var(--text-dark);
 }
 
-.dropdown:hover .dropdown-card {
+.dropdown:hover .panel {
   display: block;
-  animation: fadeIn 0.2s ease-in-out;
 }
 
-/* Grid Menu inside Dropdown */
-.grid-menu {
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
-.grid-menu a {
+.item {
   text-align: center;
   text-decoration: none;
   padding: 12px;
@@ -88,26 +83,29 @@
   color: inherit;
 }
 
-.grid-menu a span {
-  font-size: 1.5rem;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.grid-menu a:hover {
+.item:hover {
   background: var(--primary);
   color: white;
   transform: translateY(-3px);
 }
 
-/* Right Side */
-.navbar-actions {
+.label {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.icon {
+  font-size: 1.4rem;
+}
+
+.actions {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-.signin-btn {
+.signin {
   padding: 6px 14px;
   border-radius: 6px;
   border: none;
@@ -116,7 +114,7 @@
   cursor: pointer;
 }
 
-.theme-toggle {
+.toggle {
   padding: 6px 12px;
   border: 1px solid #888;
   border-radius: 6px;
@@ -125,12 +123,12 @@
   color: inherit;
 }
 
-/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

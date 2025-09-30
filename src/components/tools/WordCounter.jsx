@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/WordCounter.css';
 
 const WordCounter = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation('wordCounter'); // namespace for Word Counter
     const { theme } = useTheme();
     const [text, setText] = useState('');
 
@@ -23,14 +23,14 @@ const WordCounter = () => {
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(text);
-        alert('Text copied to clipboard!');
+        alert(t('copied', 'Text copied to clipboard!'));
     };
 
     return (
         <div className={`word-counter ${theme}`}>
             <div className="counter-header">
-                <h1>{t('wordCounter', 'title') || 'Word Counter'}</h1>
-                <p>{t('wordCounter', 'subtitle') || 'Count words, characters, and more in your text'}</p>
+                <h1>{t('title', 'Word Counter')}</h1>
+                <p>{t('subtitle', 'Count words, characters, and more in your text')}</p>
             </div>
 
             <div className="counter-container">
@@ -38,8 +38,9 @@ const WordCounter = () => {
                     <textarea
                         value={text}
                         onChange={(e) => setText(e.target.value)}
-                        placeholder={t('wordCounter', 'placeholder') || 'Start typing or paste your text here...'}
+                        placeholder={t('placeholder', 'Start typing or paste your text here...')}
                         className="text-area"
+                        // @ts-ignore
                         rows="10"
                     />
                 </div>
@@ -47,36 +48,36 @@ const WordCounter = () => {
                 <div className="stats-grid">
                     <div className="stat-card">
                         <div className="stat-number">{stats.words}</div>
-                        <div className="stat-label">{t('wordCounter', 'words') || 'Words'}</div>
+                        <div className="stat-label">{t('words', 'Words')}</div>
                     </div>
                     <div className="stat-card">
                         <div className="stat-number">{stats.characters}</div>
-                        <div className="stat-label">{t('wordCounter', 'characters') || 'Characters'}</div>
+                        <div className="stat-label">{t('characters', 'Characters')}</div>
                     </div>
                     <div className="stat-card">
                         <div className="stat-number">{stats.charactersWithoutSpaces}</div>
-                        <div className="stat-label">{t('wordCounter', 'charactersNoSpaces') || 'Characters (no spaces)'}</div>
+                        <div className="stat-label">{t('charactersNoSpaces', 'Characters (no spaces)')}</div>
                     </div>
                     <div className="stat-card">
                         <div className="stat-number">{stats.sentences}</div>
-                        <div className="stat-label">{t('wordCounter', 'sentences') || 'Sentences'}</div>
+                        <div className="stat-label">{t('sentences', 'Sentences')}</div>
                     </div>
                     <div className="stat-card">
                         <div className="stat-number">{stats.paragraphs}</div>
-                        <div className="stat-label">{t('wordCounter', 'paragraphs') || 'Paragraphs'}</div>
+                        <div className="stat-label">{t('paragraphs', 'Paragraphs')}</div>
                     </div>
                     <div className="stat-card">
                         <div className="stat-number">{stats.readingTime}</div>
-                        <div className="stat-label">{t('wordCounter', 'readingTime') || 'Reading Time (minutes)'}</div>
+                        <div className="stat-label">{t('readingTime', 'Reading Time (minutes)')}</div>
                     </div>
                 </div>
 
                 <div className="action-buttons">
                     <button onClick={copyToClipboard} className="action-btn copy">
-                        {t('wordCounter', 'copy') || 'Copy Text'}
+                        {t('copy', 'Copy Text')}
                     </button>
                     <button onClick={clearText} className="action-btn clear">
-                        {t('wordCounter', 'clear') || 'Clear Text'}
+                        {t('clear', 'Clear Text')}
                     </button>
                 </div>
             </div>

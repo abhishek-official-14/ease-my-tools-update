@@ -1,0 +1,12 @@
+{
+    "title": "JSON फ़ॉर्मैटर",
+    "subtitle": "JSON डेटा को फ़ॉर्मैट, मान्य और मिनिफ़ाई करें",
+    "inputLabel": "इनपुट JSON",
+    "inputPlaceholder": "अपना JSON यहाँ पेस्ट करें...",
+    "outputLabel": "फ़ॉर्मैट किया गया JSON",
+    "format": "JSON फ़ॉर्मैट करें",
+    "minify": "JSON मिनिफ़ाई करें",
+    "validate": "JSON मान्य करें",
+    "clear": "सभी साफ़ करें",
+    "copy": "क्लिपबोर्ड में कॉपी करें"
+}
