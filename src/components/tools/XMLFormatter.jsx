@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/XMLFormatter.css';
 
 const XMLFormatter = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation('xmlFormatter');
     const { theme } = useTheme();
     const [inputXML, setInputXML] = useState('');
     const [formattedXML, setFormattedXML] = useState('');
@@ -14,7 +14,7 @@ const XMLFormatter = () => {
 
     const formatXML = () => {
         if (!inputXML.trim()) {
-            alert(t('xmlFormatter', 'enterXML') || 'Please enter XML data');
+            alert(t('enterXML') || 'Please enter XML data');
             return;
         }
 
@@ -80,7 +80,7 @@ const XMLFormatter = () => {
 
     const validateXML = () => {
         if (!inputXML.trim()) {
-            setError(t('xmlFormatter', 'enterXML') || 'Please enter XML data');
+            setError(t('enterXML') || 'Please enter XML data');
             setIsValid(false);
             return;
         }
@@ -95,7 +95,7 @@ const XMLFormatter = () => {
             }
             
             setIsValid(true);
-            setError(t('xmlFormatter', 'validXML') || 'Valid XML!');
+            setError(t('validXML') || 'Valid XML!');
         } catch (err) {
             setIsValid(false);
             setError(err.message);
@@ -104,7 +104,7 @@ const XMLFormatter = () => {
 
     const minifyXML = () => {
         if (!inputXML.trim()) {
-            alert(t('xmlFormatter', 'enterXML') || 'Please enter XML data');
+            alert(t('enterXML') || 'Please enter XML data');
             return;
         }
 
@@ -128,52 +128,51 @@ const XMLFormatter = () => {
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text);
-        alert(t('xmlFormatter', 'copied') || 'Copied to clipboard!');
+        alert(t('copied') || 'Copied to clipboard!');
     };
 
     return (
         <div className={`xml-formatter ${theme}`}>
             <div className="formatter-header">
-                <h1>{t('xmlFormatter', 'title') || 'XML Formatter'}</h1>
-                <p>{t('xmlFormatter', 'subtitle') || 'Format, validate, and minify XML data'}</p>
+                <h1>{t('title') || 'XML Formatter'}</h1>
+                <p>{t('subtitle') || 'Format, validate, and minify XML data'}</p>
             </div>
 
             <div className="formatter-container">
                 <div className="settings-panel">
                     <div className="setting">
-                        <label>{t('xmlFormatter', 'indentSize') || 'Indent Size'}:</label>
+                        <label>{t('indentSize') || 'Indent Size'}:</label>
                         <select value={indentSize} onChange={(e) => setIndentSize(parseInt(e.target.value))}>
-                            <option value={2}>2 {t('xmlFormatter', 'spaces') || 'spaces'}</option>
-                            <option value={4}>4 {t('xmlFormatter', 'spaces') || 'spaces'}</option>
-                            <option value={8}>8 {t('xmlFormatter', 'spaces') || 'spaces'}</option>
+                            <option value={2}>2 {t('spaces') || 'spaces'}</option>
+                            <option value={4}>4 {t('spaces') || 'spaces'}</option>
+                            <option value={8}>8 {t('spaces') || 'spaces'}</option>
                         </select>
                     </div>
                 </div>
 
                 <div className="input-section">
-                    <label>{t('xmlFormatter', 'inputXML') || 'Input XML'}</label>
+                    <label>{t('inputXML') || 'Input XML'}</label>
                     <textarea
                         value={inputXML}
                         onChange={(e) => setInputXML(e.target.value)}
-                        placeholder={t('xmlFormatter', 'xmlPlaceholder') || 'Paste your XML data here...'}
+                        placeholder={t('xmlPlaceholder') || 'Paste your XML data here...'}
                         className={`xml-input ${!isValid ? 'error' : ''}`}
-                        // @ts-ignore
                         rows="8"
                     />
                 </div>
 
                 <div className="action-buttons">
                     <button onClick={formatXML} className="format-btn">
-                        {t('xmlFormatter', 'format') || 'Format XML'}
+                        {t('format') || 'Format XML'}
                     </button>
                     <button onClick={minifyXML} className="minify-btn">
-                        {t('xmlFormatter', 'minify') || 'Minify XML'}
+                        {t('minify') || 'Minify XML'}
                     </button>
                     <button onClick={validateXML} className="validate-btn">
-                        {t('xmlFormatter', 'validate') || 'Validate XML'}
+                        {t('validate') || 'Validate XML'}
                     </button>
                     <button onClick={clearAll} className="clear-btn">
-                        {t('xmlFormatter', 'clear') || 'Clear All'}
+                        {t('clear') || 'Clear All'}
                     </button>
                 </div>
 
@@ -185,28 +184,28 @@ const XMLFormatter = () => {
 
                 {formattedXML && (
                     <div className="output-section">
-                        <label>{t('xmlFormatter', 'formattedXML') || 'Formatted XML'}</label>
+                        <label>{t('formattedXML') || 'Formatted XML'}</label>
                         <pre className="xml-output">
                             {formattedXML}
                         </pre>
                         <div className="output-actions">
                             <button onClick={() => copyToClipboard(formattedXML)} className="copy-btn">
-                                {t('xmlFormatter', 'copy') || 'Copy to Clipboard'}
+                                {t('copy') || 'Copy to Clipboard'}
                             </button>
                         </div>
                     </div>
                 )}
 
                 <div className="info-section">
-                    <h4>{t('xmlFormatter', 'aboutXML') || 'About XML'}</h4>
-                    <p>{t('xmlFormatter', 'xmlInfo') || 'XML (eXtensible Markup Language) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.'}</p>
+                    <h4>{t('aboutXML') || 'About XML'}</h4>
+                    <p>{t('xmlInfo') || 'XML (eXtensible Markup Language) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.'}</p>
                     
-                    <h5>{t('xmlFormatter', 'commonUses') || 'Common Uses:'}</h5>
+                    <h5>{t('commonUses') || 'Common Uses:'}</h5>
                     <ul>
-                        <li>{t('xmlFormatter', 'use1') || 'Web services (SOAP, REST)'}</li>
-                        <li>{t('xmlFormatter', 'use2') || 'Configuration files'}</li>
-                        <li>{t('xmlFormatter', 'use3') || 'Data exchange between systems'}</li>
-                        <li>{t('xmlFormatter', 'use4') || 'Document storage'}</li>
+                        <li>{t('use1') || 'Web services (SOAP, REST)'}</li>
+                        <li>{t('use2') || 'Configuration files'}</li>
+                        <li>{t('use3') || 'Data exchange between systems'}</li>
+                        <li>{t('use4') || 'Document storage'}</li>
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,19 @@
+{
+    "title": "Age Calculator",
+    "subtitle": "Calculate your exact age in years, months, and days",
+    "birthDate": "Your Birth Date",
+    "calculateAge": "Calculate Age",
+    "clear": "Clear",
+    "selectDate": "Please select your birth date",
+    "yourAge": "Your Age",
+    "years": "Years",
+    "months": "Months",
+    "days": "Days",
+    "totalDays": "Total Days",
+    "nextBirthday": "Days until next birthday",
+    "birthDay": "Birth Day",
+    "funFacts": "Fun Facts",
+    "fact1": "You have lived through approximately {{months}} months",
+    "fact2": "You have experienced about {{weekends}} weekends",
+    "fact3": "Your next birthday is in {{days}} days"
+}

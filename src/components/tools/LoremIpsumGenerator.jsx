@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/LoremIpsumGenerator.css';
 
 const LoremIpsumGenerator = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation('loremIpsum');
     const { theme } = useTheme();
     const [outputType, setOutputType] = useState('paragraphs');
     const [quantity, setQuantity] = useState(3);
@@ -80,7 +80,7 @@ const LoremIpsumGenerator = () => {
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(generatedText);
-        alert(t('loremIpsum', 'copied') || 'Text copied to clipboard!');
+        alert(t('copied') || 'Text copied to clipboard!');
     };
 
     const clearText = () => {
@@ -102,28 +102,28 @@ const LoremIpsumGenerator = () => {
     return (
         <div className={`lorem-generator ${theme}`}>
             <div className="generator-header">
-                <h1>{t('loremIpsum', 'title') || 'Lorem Ipsum Generator'}</h1>
-                <p>{t('loremIpsum', 'subtitle') || 'Generate placeholder text for your projects'}</p>
+                <h1>{t('title') || 'Lorem Ipsum Generator'}</h1>
+                <p>{t('subtitle') || 'Generate placeholder text for your projects'}</p>
             </div>
 
             <div className="generator-container">
                 <div className="controls-section">
                     <div className="control-group">
-                        <label>{t('loremIpsum', 'outputType') || 'Output Type'}</label>
+                        <label>{t('outputType') || 'Output Type'}</label>
                         <select 
                             value={outputType} 
                             onChange={(e) => setOutputType(e.target.value)}
                             className="type-select"
                         >
-                            <option value="paragraphs">{t('loremIpsum', 'paragraphs') || 'Paragraphs'}</option>
-                            <option value="sentences">{t('loremIpsum', 'sentences') || 'Sentences'}</option>
-                            <option value="words">{t('loremIpsum', 'words') || 'Words'}</option>
-                            <option value="list">{t('loremIpsum', 'listItems') || 'List Items'}</option>
+                            <option value="paragraphs">{t('paragraphs') || 'Paragraphs'}</option>
+                            <option value="sentences">{t('sentences') || 'Sentences'}</option>
+                            <option value="words">{t('words') || 'Words'}</option>
+                            <option value="list">{t('listItems') || 'List Items'}</option>
                         </select>
                     </div>
 
                     <div className="control-group">
-                        <label>{t('loremIpsum', 'quantity') || 'Quantity'}</label>
+                        <label>{t('quantity') || 'Quantity'}</label>
                         <input
                             type="number"
                             value={quantity}
@@ -135,23 +135,23 @@ const LoremIpsumGenerator = () => {
                     </div>
 
                     <button onClick={generateText} className="generate-btn">
-                        {t('loremIpsum', 'generate') || 'Generate Lorem Ipsum'}
+                        {t('generate') || 'Generate Lorem Ipsum'}
                     </button>
                 </div>
 
                 {generatedText && (
                     <div className="output-section">
                         <div className="output-header">
-                            <h3>{t('loremIpsum', 'generatedText') || 'Generated Text'}</h3>
+                            <h3>{t('generatedText') || 'Generated Text'}</h3>
                             <div className="output-actions">
                                 <button onClick={copyToClipboard} className="copy-btn">
-                                    {t('loremIpsum', 'copy') || 'Copy'}
+                                    {t('copy') || 'Copy'}
                                 </button>
                                 <button onClick={downloadText} className="download-btn">
-                                    {t('loremIpsum', 'download') || 'Download'}
+                                    {t('download') || 'Download'}
                                 </button>
                                 <button onClick={clearText} className="clear-btn">
-                                    {t('loremIpsum', 'clear') || 'Clear'}
+                                    {t('clear') || 'Clear'}
                                 </button>
                             </div>
                         </div>
@@ -162,31 +162,31 @@ const LoremIpsumGenerator = () => {
                 )}
 
                 <div className="info-section">
-                    <h4>{t('loremIpsum', 'aboutLoremIpsum') || 'About Lorem Ipsum'}</h4>
-                    <p>{t('loremIpsum', 'loremInfo') || 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry\'s standard dummy text ever since the 1500s.'}</p>
+                    <h4>{t('aboutLoremIpsum') || 'About Lorem Ipsum'}</h4>
+                    <p>{t('loremInfo') || 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry\'s standard dummy text ever since the 1500s.'}</p>
                     
-                    <h5>{t('loremIpsum', 'commonUses') || 'Common Uses:'}</h5>
+                    <h5>{t('commonUses') || 'Common Uses:'}</h5>
                     <ul>
-                        <li>{t('loremIpsum', 'use1') || 'Web design mockups'}</li>
-                        <li>{t('loremIpsum', 'use2') || 'Printing and typesetting'}</li>
-                        <li>{t('loremIpsum', 'use3') || 'Layout testing'}</li>
-                        <li>{t('loremIpsum', 'use4') || 'Content placeholder'}</li>
+                        <li>{t('use1') || 'Web design mockups'}</li>
+                        <li>{t('use2') || 'Printing and typesetting'}</li>
+                        <li>{t('use3') || 'Layout testing'}</li>
+                        <li>{t('use4') || 'Content placeholder'}</li>
                     </ul>
 
                     <div className="quick-generate">
-                        <h5>{t('loremIpsum', 'quickGenerate') || 'Quick Generate:'}</h5>
+                        <h5>{t('quickGenerate') || 'Quick Generate:'}</h5>
                         <div className="quick-buttons">
                             <button onClick={() => {setOutputType('paragraphs'); setQuantity(1); generateText();}} className="quick-btn">
-                                1 {t('loremIpsum', 'paragraph') || 'Paragraph'}
+                                1 {t('paragraph') || 'Paragraph'}
                             </button>
                             <button onClick={() => {setOutputType('paragraphs'); setQuantity(3); generateText();}} className="quick-btn">
-                                3 {t('loremIpsum', 'paragraphs') || 'Paragraphs'}
+                                3 {t('paragraphs') || 'Paragraphs'}
                             </button>
                             <button onClick={() => {setOutputType('words'); setQuantity(50); generateText();}} className="quick-btn">
-                                50 {t('loremIpsum', 'words') || 'Words'}
+                                50 {t('words') || 'Words'}
                             </button>
                             <button onClick={() => {setOutputType('list'); setQuantity(5); generateText();}} className="quick-btn">
-                                5 {t('loremIpsum', 'listItems') || 'List Items'}
+                                5 {t('listItems') || 'List Items'}
                             </button>
                         </div>
                     </div>

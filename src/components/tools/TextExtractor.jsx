@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/TextExtractor.css';
 
 const TextExtractor = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation('textExtractor');
     const { theme } = useTheme();
     const [extractedText, setExtractedText] = useState('');
     const [isProcessing, setIsProcessing] = useState(false);
@@ -17,7 +17,7 @@ const TextExtractor = () => {
 
         // Check if file is an image
         if (!file.type.startsWith('image/')) {
-            alert(t('textExtractor', 'selectImage') || 'Please select an image file');
+            alert(t('selectImage') || 'Please select an image file');
             return;
         }
 
@@ -89,7 +89,7 @@ you would need to integrate with an OCR service like:
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(extractedText);
-        alert(t('textExtractor', 'copied') || 'Text copied to clipboard!');
+        alert(t('copied') || 'Text copied to clipboard!');
     };
 
     const downloadText = () => {
@@ -107,8 +107,8 @@ you would need to integrate with an OCR service like:
     return (
         <div className={`text-extractor ${theme}`} onPaste={handlePaste}>
             <div className="extractor-header">
-                <h1>{t('textExtractor', 'title') || 'Text Extractor'}</h1>
-                <p>{t('textExtractor', 'subtitle') || 'Extract text from images (OCR simulation)'}</p>
+                <h1>{t('title') || 'Text Extractor'}</h1>
+                <p>{t('subtitle') || 'Extract text from images (OCR simulation)'}</p>
             </div>
 
             <div className="extractor-container">
@@ -125,20 +125,20 @@ you would need to integrate with an OCR service like:
                         <label htmlFor="file-upload" className="upload-label">
                             <div className="upload-icon">📁</div>
                             <div className="upload-text">
-                                {t('textExtractor', 'clickToUpload') || 'Click to upload image'}
+                                {t('clickToUpload') || 'Click to upload image'}
                             </div>
                             <div className="upload-hint">
-                                {t('textExtractor', 'orPaste') || 'or paste image from clipboard'}
+                                {t('orPaste') || 'or paste image from clipboard'}
                             </div>
                             <div className="supported-formats">
-                                {t('textExtractor', 'supportedFormats') || 'Supported formats: JPG, PNG, GIF, BMP'}
+                                {t('supportedFormats') || 'Supported formats: JPG, PNG, GIF, BMP'}
                             </div>
                         </label>
                     </div>
 
                     {uploadedImage && (
                         <div className="image-preview">
-                            <h4>{t('textExtractor', 'imagePreview') || 'Image Preview'}</h4>
+                            <h4>{t('imagePreview') || 'Image Preview'}</h4>
                             <img src={uploadedImage} alt="Uploaded preview" />
                         </div>
                     )}
@@ -147,22 +147,22 @@ you would need to integrate with an OCR service like:
                 {isProcessing && (
                     <div className="processing-indicator">
                         <div className="spinner"></div>
-                        <p>{t('textExtractor', 'processing') || 'Processing image...'}</p>
+                        <p>{t('processing') || 'Processing image...'}</p>
                     </div>
                 )}
 
                 {extractedText && (
                     <div className="result-section">
-                        <h3>{t('textExtractor', 'extractedText') || 'Extracted Text'}</h3>
+                        <h3>{t('extractedText') || 'Extracted Text'}</h3>
                         <div className="text-output">
                             <pre>{extractedText}</pre>
                         </div>
                         <div className="result-actions">
                             <button onClick={copyToClipboard} className="copy-btn">
-                                {t('textExtractor', 'copyText') || 'Copy Text'}
+                                {t('copyText') || 'Copy Text'}
                             </button>
                             <button onClick={downloadText} className="download-btn">
-                                {t('textExtractor', 'downloadText') || 'Download Text'}
+                                {t('downloadText') || 'Download Text'}
                             </button>
                         </div>
                     </div>
@@ -170,30 +170,30 @@ you would need to integrate with an OCR service like:
 
                 <div className="action-buttons">
                     <button onClick={clearAll} className="clear-btn">
-                        {t('textExtractor', 'clearAll') || 'Clear All'}
+                        {t('clearAll') || 'Clear All'}
                     </button>
                 </div>
 
                 <div className="info-section">
-                    <h4>{t('textExtractor', 'aboutOCR') || 'About OCR Technology'}</h4>
-                    <p>{t('textExtractor', 'ocrInfo') || 'OCR (Optical Character Recognition) technology converts different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera into editable and searchable data.'}</p>
+                    <h4>{t('aboutOCR') || 'About OCR Technology'}</h4>
+                    <p>{t('ocrInfo') || 'OCR (Optical Character Recognition) technology converts different types of documents, such as scanned paper documents, PDF files or images captured by a digital camera into editable and searchable data.'}</p>
                     
-                    <h5>{t('textExtractor', 'commonUses') || 'Common Uses:'}</h5>
+                    <h5>{t('commonUses') || 'Common Uses:'}</h5>
                     <ul>
-                        <li>{t('textExtractor', 'use1') || 'Digitizing printed documents'}</li>
-                        <li>{t('textExtractor', 'use2') || 'Automating data entry from forms'}</li>
-                        <li>{t('textExtractor', 'use3') || 'Extracting text from screenshots'}</li>
-                        <li>{t('textExtractor', 'use4') || 'Processing business cards'}</li>
+                        <li>{t('use1') || 'Digitizing printed documents'}</li>
+                        <li>{t('use2') || 'Automating data entry from forms'}</li>
+                        <li>{t('use3') || 'Extracting text from screenshots'}</li>
+                        <li>{t('use4') || 'Processing business cards'}</li>
                     </ul>
 
                     <div className="limitations">
-                        <h5>{t('textExtractor', 'limitations') || 'Limitations:'}</h5>
-                        <p>{t('textExtractor', 'limitationNote') || 'Note: This is a simulation. For production use, consider:'}</p>
+                        <h5>{t('limitations') || 'Limitations:'}</h5>
+                        <p>{t('limitationNote') || 'Note: This is a simulation. For production use, consider:'}</p>
                         <ul>
-                            <li>{t('textExtractor', 'limitation1') || 'Google Cloud Vision API'}</li>
-                            <li>{t('textExtractor', 'limitation2') || 'Amazon Textract'}</li>
-                            <li>{t('textExtractor', 'limitation3') || 'Tesseract.js (open source)'}</li>
-                            <li>{t('textExtractor', 'limitation4') || 'Microsoft Azure Computer Vision'}</li>
+                            <li>{t('limitation1') || 'Google Cloud Vision API'}</li>
+                            <li>{t('limitation2') || 'Amazon Textract'}</li>
+                            <li>{t('limitation3') || 'Tesseract.js (open source)'}</li>
+                            <li>{t('limitation4') || 'Microsoft Azure Computer Vision'}</li>
                         </ul>
                     </div>
                 </div>

@@ -1,147 +1,306 @@
-//@ts-nocheck
-import React, { useState, useRef } from "react";
-import "../../styles/tools/imageresizer.css";
-import { useTheme } from "../../contexts/ThemeContext";
-import { useTranslation } from "react-i18next"; // new i18n hook
+import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../contexts/ThemeContext';
+import '../../styles/tools/ImageResizer.css';
 
 const ImageResizer = () => {
-  const { theme } = useTheme();
-  const { t } = useTranslation("imageResizer"); // namespace for translations
-  const [image, setImage] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState("");
-  const [width, setWidth] = useState("");
-  const [height, setHeight] = useState("");
-  const [keepRatio, setKeepRatio] = useState(true);
-  const [format, setFormat] = useState("png");
-  const [originalRatio, setOriginalRatio] = useState(null);
-  const fileInputRef = useRef(null);
+    const { t } = useTranslation('imageResizer');
+    const { theme } = useTheme();
+    const [originalImage, setOriginalImage] = useState(null);
+    const [resizedImage, setResizedImage] = useState(null);
+    const [width, setWidth] = useState(800);
+    const [height, setHeight] = useState(600);
+    const [maintainAspectRatio, setMaintainAspectRatio] = useState(true);
+    const [quality, setQuality] = useState(0.8);
+    const [originalSize, setOriginalSize] = useState({ width: 0, height: 0 });
+    const fileInputRef = useRef(null);
+    const canvasRef = useRef(null);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const img = new Image();
-        img.onload = () => {
-          setOriginalRatio(img.width / img.height);
-          setImage(img);
-          setPreviewUrl(reader.result);
-          setWidth(img.width);
-          setHeight(img.height);
+    const handleFileUpload = (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        if (!file.type.startsWith('image/')) {
+            alert(t('selectImage') || 'Please select an image file');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                setOriginalImage(e.target.result);
+                setOriginalSize({ width: img.width, height: img.height });
+                setWidth(img.width);
+                setHeight(img.height);
+                setResizedImage(null);
+            };
+            img.src = e.target.result;
         };
-        img.src = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+        reader.readAsDataURL(file);
+    };
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    if (file) {
-      handleFileChange({ target: { files: [file] } });
-    }
-  };
+    const resizeImage = () => {
+        if (!originalImage) {
+            alert(t('uploadImage') || 'Please upload an image first');
+            return;
+        }
 
-  const handleWidthChange = (e) => {
-    const newWidth = e.target.value;
-    setWidth(newWidth);
-    if (keepRatio && originalRatio) {
-      setHeight(Math.round(newWidth / originalRatio));
-    }
-  };
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
 
-  const handleHeightChange = (e) => {
-    const newHeight = e.target.value;
-    setHeight(newHeight);
-    if (keepRatio && originalRatio) {
-      setWidth(Math.round(newHeight * originalRatio));
-    }
-  };
+        img.onload = () => {
+            // Calculate dimensions maintaining aspect ratio if enabled
+            let newWidth = width;
+            let newHeight = height;
 
-  const handleResize = () => {
-    if (!image) return;
+            if (maintainAspectRatio) {
+                const aspectRatio = img.width / img.height;
+                if (newWidth / newHeight > aspectRatio) {
+                    newWidth = newHeight * aspectRatio;
+                } else {
+                    newHeight = newWidth / aspectRatio;
+                }
+            }
 
-    const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(image, 0, 0, width, height);
+            canvas.width = newWidth;
+            canvas.height = newHeight;
 
-    let mimeType = "image/png";
-    if (format === "jpg") mimeType = "image/jpeg";
-    if (format === "webp") mimeType = "image/webp";
+            // Draw image with high quality
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
-    const link = document.createElement("a");
-    link.download = `resized.${format}`;
-    link.href = canvas.toDataURL(mimeType, 0.9);
-    link.click();
-  };
+            // Convert to data URL with specified quality
+            const resizedDataURL = canvas.toDataURL('image/jpeg', quality);
+            setResizedImage(resizedDataURL);
+        };
 
-  return (
-    <div className={`image-resizer-container ${theme}`}>
-      <h2 className="title">{t("title", "✨ Image Resizer")}</h2>
+        img.src = originalImage;
+    };
 
-      {/* Upload Section */}
-      <div
-        className="drop-zone"
-        onDragOver={(e) => e.preventDefault()}
-        onDrop={handleDrop}
-        onClick={() => fileInputRef.current.click()}
-      >
-        {previewUrl ? (
-          <img src={previewUrl} alt="preview" className="preview-img" />
-        ) : (
-          <p>
-            {t("dragDrop", "📂 Drag & Drop image here or ")}
-            <span>{t("browse", "Browse")}</span>
-          </p>
-        )}
-        <input
-          type="file"
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          hidden
-        />
-      </div>
+    const handleWidthChange = (newWidth) => {
+        setWidth(newWidth);
+        if (maintainAspectRatio && originalSize.width > 0) {
+            const aspectRatio = originalSize.width / originalSize.height;
+            setHeight(Math.round(newWidth / aspectRatio));
+        }
+    };
 
-      {/* Controls */}
-      {image && (
-        <div className="controls">
-          <div className="input-group">
-            <label>{t("width", "Width")}</label>
-            <input type="number" value={width} onChange={handleWidthChange} />
-          </div>
-          <div className="input-group">
-            <label>{t("height", "Height")}</label>
-            <input type="number" value={height} onChange={handleHeightChange} />
-          </div>
+    const handleHeightChange = (newHeight) => {
+        setHeight(newHeight);
+        if (maintainAspectRatio && originalSize.height > 0) {
+            const aspectRatio = originalSize.width / originalSize.height;
+            setWidth(Math.round(newHeight * aspectRatio));
+        }
+    };
 
-          <div className="options">
-            <label>
-              <input
-                type="checkbox"
-                checked={keepRatio}
-                onChange={() => setKeepRatio(!keepRatio)}
-              />
-              {t("keepRatio", "Keep Aspect Ratio 🔒")}
-            </label>
+    const clearAll = () => {
+        setOriginalImage(null);
+        setResizedImage(null);
+        setWidth(800);
+        setHeight(600);
+        setOriginalSize({ width: 0, height: 0 });
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
 
-            <select value={format} onChange={(e) => setFormat(e.target.value)}>
-              <option value="png">PNG</option>
-              <option value="jpg">JPG</option>
-              <option value="webp">WEBP</option>
-            </select>
-          </div>
+    const downloadResizedImage = () => {
+        if (!resizedImage) return;
 
-          <button className="resize-btn" onClick={handleResize}>
-            {t("download", "🚀 Download Resized Image")}
-          </button>
+        const link = document.createElement('a');
+        link.href = resizedImage;
+        link.download = `resized-image-${width}x${height}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    const applyPreset = (preset) => {
+        switch (preset) {
+            case 'facebook':
+                setWidth(1200);
+                setHeight(630);
+                break;
+            case 'instagram':
+                setWidth(1080);
+                setHeight(1080);
+                break;
+            case 'twitter':
+                setWidth(1200);
+                setHeight(675);
+                break;
+            case 'thumbnail':
+                setWidth(300);
+                setHeight(300);
+                break;
+            case 'hd':
+                setWidth(1920);
+                setHeight(1080);
+                break;
+            default:
+                break;
+        }
+    };
+
+    return (
+        <div className={`image-resizer ${theme}`}>
+            <div className="resizer-header">
+                <h1>{t('title') || 'Image Resizer'}</h1>
+                <p>{t('subtitle') || 'Resize images while maintaining quality'}</p>
+            </div>
+
+            <div className="resizer-container">
+                <div className="upload-section">
+                    <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileUpload}
+                        className="file-input"
+                        id="image-upload"
+                    />
+                    <label htmlFor="image-upload" className="upload-label">
+                        <div className="upload-icon">🖼️</div>
+                        <div className="upload-text">
+                            {t('clickToUpload') || 'Click to upload image'}
+                        </div>
+                        <div className="upload-hint">
+                            {t('supportedFormats') || 'Supported formats: JPG, PNG, GIF, BMP, WebP'}
+                        </div>
+                    </label>
+                </div>
+
+                {originalImage && (
+                    <div className="resize-controls">
+                        <h3>{t('resizeSettings') || 'Resize Settings'}</h3>
+                        
+                        <div className="preset-buttons">
+                            <h4>{t('presets') || 'Quick Presets:'}</h4>
+                            <div className="preset-grid">
+                                <button onClick={() => applyPreset('facebook')} className="preset-btn">
+                                    {t('facebookPreset') || 'Facebook (1200×630)'}
+                                </button>
+                                <button onClick={() => applyPreset('instagram')} className="preset-btn">
+                                    {t('instagramPreset') || 'Instagram (1080×1080)'}
+                                </button>
+                                <button onClick={() => applyPreset('twitter')} className="preset-btn">
+                                    {t('twitterPreset') || 'Twitter (1200×675)'}
+                                </button>
+                                <button onClick={() => applyPreset('thumbnail')} className="preset-btn">
+                                    {t('thumbnailPreset') || 'Thumbnail (300×300)'}
+                                </button>
+                                <button onClick={() => applyPreset('hd')} className="preset-btn">
+                                    {t('hdPreset') || 'HD (1920×1080)'}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="size-controls">
+                            <div className="size-input">
+                                <label>{t('width') || 'Width'}</label>
+                                <input
+                                    type="number"
+                                    value={width}
+                                    onChange={(e) => handleWidthChange(parseInt(e.target.value) || 1)}
+                                    min="1"
+                                    max="5000"
+                                />
+                                <span>px</span>
+                            </div>
+                            <div className="size-input">
+                                <label>{t('height') || 'Height'}</label>
+                                <input
+                                    type="number"
+                                    value={height}
+                                    onChange={(e) => handleHeightChange(parseInt(e.target.value) || 1)}
+                                    min="1"
+                                    max="5000"
+                                />
+                                <span>px</span>
+                            </div>
+                        </div>
+
+                        <div className="settings-group">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={maintainAspectRatio}
+                                    onChange={(e) => setMaintainAspectRatio(e.target.checked)}
+                                />
+                                {t('maintainAspectRatio') || 'Maintain aspect ratio'}
+                            </label>
+                            
+                            <div className="quality-control">
+                                <label>{t('quality') || 'Quality'}: {Math.round(quality * 100)}%</label>
+                                <input
+                                    type="range"
+                                    min="0.1"
+                                    max="1"
+                                    step="0.1"
+                                    value={quality}
+                                    onChange={(e) => setQuality(parseFloat(e.target.value))}
+                                    className="quality-slider"
+                                />
+                            </div>
+                        </div>
+
+                        <button onClick={resizeImage} className="resize-btn">
+                            {t('resizeImage') || 'Resize Image'}
+                        </button>
+                    </div>
+                )}
+
+                <div className="preview-section">
+                    {originalImage && (
+                        <div className="image-preview original">
+                            <h4>{t('original') || 'Original'}</h4>
+                            <img src={originalImage} alt="Original" />
+                            <div className="image-info">
+                                {originalSize.width} × {originalSize.height} px
+                            </div>
+                        </div>
+                    )}
+
+                    {resizedImage && (
+                        <div className="image-preview resized">
+                            <h4>{t('resized') || 'Resized'}</h4>
+                            <img src={resizedImage} alt="Resized" />
+                            <div className="image-info">
+                                {width} × {height} px
+                            </div>
+                            <button onClick={downloadResizedImage} className="download-btn">
+                                {t('download') || 'Download Resized Image'}
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                <div className="action-buttons">
+                    <button onClick={clearAll} className="clear-btn">
+                        {t('clearAll') || 'Clear All'}
+                    </button>
+                </div>
+
+                <canvas ref={canvasRef} style={{ display: 'none' }} />
+
+                <div className="info-section">
+                    <h4>{t('aboutImageResizing') || 'About Image Resizing'}</h4>
+                    <p>{t('resizeInfo') || 'Image resizing is the process of changing the dimensions of an image while maintaining its visual quality. This is useful for optimizing images for web, social media, or storage.'}</p>
+                    
+                    <h5>{t('tips') || 'Tips:'}</h5>
+                    <ul>
+                        <li>{t('tip1') || 'Maintain aspect ratio to prevent distortion'}</li>
+                        <li>{t('tip2') || 'Use higher quality for important images'}</li>
+                        <li>{t('tip3') || 'Consider file size for web optimization'}</li>
+                        <li>{t('tip4') || 'Test different sizes for different platforms'}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default ImageResizer;

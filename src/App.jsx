@@ -14,14 +14,12 @@ import JSONFormatter from "./components/tools/JSONFormatter";
 import ColorPicker from "./components/tools/ColorPicker";
 import PercentageCalculator from "./components/tools/PercentageCalculator";
 import AgeCalculator from "./components/tools/AgeCalculator";
-import Base64Tool from "./components/tools/Base64Tool";
 import TimeCalculator from "./components/tools/TimeCalculator";
 import CSVtoJSON from "./components/tools/CSVtoJSON";
 import XMLFormatter from "./components/tools/XMLFormatter";
 import URLEncoder from "./components/tools/URLEncoder";
 import TextExtractor from "./components/tools/TextExtractor";
 import LoremIpsumGenerator from "./components/tools/LoremIpsumGenerator";
-import ImageResizer2 from "./components/tools/ImageResizer2";
 
 import MarkdownPreviewer from "./components/tools/MarkdownPreviewer";
 import TextDiffChecker from "./components/tools/TextDiffChecker";
@@ -73,14 +71,13 @@ function App() {
 
 
       <AgeCalculator></AgeCalculator>
-      <Base64Tool></Base64Tool>
+     
       <TimeCalculator></TimeCalculator>
       <CSVtoJSON></CSVtoJSON>
       <XMLFormatter></XMLFormatter>
       <URLEncoder></URLEncoder>
       <TextExtractor></TextExtractor>
       <LoremIpsumGenerator></LoremIpsumGenerator>
-      <ImageResizer2></ImageResizer2>
 
       <Footer></Footer>
     </>

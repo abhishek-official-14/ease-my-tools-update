@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import '../../styles/tools/PercentageCalculator.css';
 
 const PercentageCalculator = () => {
-    const { t } = useLanguage();
+    const { t } = useTranslation('percentageCalculator');
     const { theme } = useTheme();
     const [calculationType, setCalculationType] = useState('percentage');
     const [values, setValues] = useState({
@@ -60,8 +60,8 @@ const PercentageCalculator = () => {
     return (
         <div className={`percentage-calculator ${theme}`}>
             <div className="calculator-header">
-                <h1>{t('percentageCalculator', 'title') || 'Percentage Calculator'}</h1>
-                <p>{t('percentageCalculator', 'subtitle') || 'Calculate percentages, discounts, and changes'}</p>
+                <h1>{t('title') || 'Percentage Calculator'}</h1>
+                <p>{t('subtitle') || 'Calculate percentages, discounts, and changes'}</p>
             </div>
 
             <div className="calculator-container">
@@ -70,48 +70,48 @@ const PercentageCalculator = () => {
                         className={`type-btn ${calculationType === 'percentage' ? 'active' : ''}`}
                         onClick={() => setCalculationType('percentage')}
                     >
-                        {t('percentageCalculator', 'basicPercentage') || 'Basic Percentage'}
+                        {t('basicPercentage') || 'Basic Percentage'}
                     </button>
                     <button 
                         className={`type-btn ${calculationType === 'change' ? 'active' : ''}`}
                         onClick={() => setCalculationType('change')}
                     >
-                        {t('percentageCalculator', 'percentageChange') || 'Percentage Change'}
+                        {t('percentageChange') || 'Percentage Change'}
                     </button>
                     <button 
                         className={`type-btn ${calculationType === 'findNumber' ? 'active' : ''}`}
                         onClick={() => setCalculationType('findNumber')}
                     >
-                        {t('percentageCalculator', 'findNumber') || 'Find Number'}
+                        {t('findNumber') || 'Find Number'}
                     </button>
                 </div>
 
                 {calculationType === 'percentage' && (
                     <div className="calculation-section">
-                        <h3>{t('percentageCalculator', 'basicPercentage') || 'Basic Percentage'}</h3>
+                        <h3>{t('basicPercentage') || 'Basic Percentage'}</h3>
                         <div className="input-group">
-                            <label>{t('percentageCalculator', 'whatIs') || 'What is'} </label>
+                            <label>{t('whatIs') || 'What is'} </label>
                             <input
                                 type="number"
                                 value={values.percentage}
                                 onChange={(e) => setValues(prev => ({ ...prev, percentage: e.target.value }))}
                                 placeholder="%"
                             />
-                            <label> {t('percentageCalculator', 'of') || 'of'} </label>
+                            <label> {t('of') || 'of'} </label>
                             <input
                                 type="number"
                                 value={values.number}
                                 onChange={(e) => setValues(prev => ({ ...prev, number: e.target.value }))}
-                                placeholder={t('percentageCalculator', 'number') || 'Number'}
+                                placeholder={t('number') || 'Number'}
                             />
                             <span>?</span>
                         </div>
                         <button onClick={calculatePercentage} className="calculate-btn">
-                            {t('percentageCalculator', 'calculate') || 'Calculate'}
+                            {t('calculate') || 'Calculate'}
                         </button>
                         {values.result && (
                             <div className="result">
-                                <strong>{values.percentage}% {t('percentageCalculator', 'of') || 'of'} {values.number} = {values.result}</strong>
+                                <strong>{values.percentage}% {t('of') || 'of'} {values.number} = {values.result}</strong>
                             </div>
                         )}
                     </div>
@@ -119,29 +119,29 @@ const PercentageCalculator = () => {
 
                 {calculationType === 'change' && (
                     <div className="calculation-section">
-                        <h3>{t('percentageCalculator', 'percentageChange') || 'Percentage Change'}</h3>
+                        <h3>{t('percentageChange') || 'Percentage Change'}</h3>
                         <div className="input-group vertical">
-                            <label>{t('percentageCalculator', 'originalValue') || 'Original Value'}</label>
+                            <label>{t('originalValue') || 'Original Value'}</label>
                             <input
                                 type="number"
                                 value={values.original}
                                 onChange={(e) => setValues(prev => ({ ...prev, original: e.target.value }))}
-                                placeholder={t('percentageCalculator', 'originalValue') || 'Original Value'}
+                                placeholder={t('originalValue') || 'Original Value'}
                             />
-                            <label>{t('percentageCalculator', 'finalValue') || 'Final Value'}</label>
+                            <label>{t('finalValue') || 'Final Value'}</label>
                             <input
                                 type="number"
                                 value={values.final}
                                 onChange={(e) => setValues(prev => ({ ...prev, final: e.target.value }))}
-                                placeholder={t('percentageCalculator', 'finalValue') || 'Final Value'}
+                                placeholder={t('finalValue') || 'Final Value'}
                             />
                         </div>
                         <button onClick={calculatePercentageChange} className="calculate-btn">
-                            {t('percentageCalculator', 'calculate') || 'Calculate'}
+                            {t('calculate') || 'Calculate'}
                         </button>
                         {values.change && (
                             <div className="result">
-                                <strong>{t('percentageCalculator', 'percentageChange') || 'Percentage Change'}: {values.change}%</strong>
+                                <strong>{t('percentageChange') || 'Percentage Change'}: {values.change}%</strong>
                             </div>
                         )}
                     </div>
@@ -149,36 +149,36 @@ const PercentageCalculator = () => {
 
                 {calculationType === 'findNumber' && (
                     <div className="calculation-section">
-                        <h3>{t('percentageCalculator', 'findNumber') || 'Find Number'}</h3>
+                        <h3>{t('findNumber') || 'Find Number'}</h3>
                         <div className="input-group">
-                            <label>{values.result} {t('percentageCalculator', 'is') || 'is'} </label>
+                            <label>{values.result} {t('is') || 'is'} </label>
                             <input
                                 type="number"
                                 value={values.percentage}
                                 onChange={(e) => setValues(prev => ({ ...prev, percentage: e.target.value }))}
                                 placeholder="%"
                             />
-                            <label> {t('percentageCalculator', 'ofWhatNumber') || 'of what number?'} </label>
+                            <label> {t('ofWhatNumber') || 'of what number?'} </label>
                             <input
                                 type="number"
                                 value={values.result}
                                 onChange={(e) => setValues(prev => ({ ...prev, result: e.target.value }))}
-                                placeholder={t('percentageCalculator', 'result') || 'Result'}
+                                placeholder={t('result') || 'Result'}
                             />
                         </div>
                         <button onClick={calculateNumberFromPercentage} className="calculate-btn">
-                            {t('percentageCalculator', 'calculate') || 'Calculate'}
+                            {t('calculate') || 'Calculate'}
                         </button>
                         {values.number && (
                             <div className="result">
-                                <strong>{values.result} {t('percentageCalculator', 'is') || 'is'} {values.percentage}% {t('percentageCalculator', 'of') || 'of'} {values.number}</strong>
+                                <strong>{values.result} {t('is') || 'is'} {values.percentage}% {t('of') || 'of'} {values.number}</strong>
                             </div>
                         )}
                     </div>
                 )}
 
                 <button onClick={clearAll} className="clear-btn">
-                    {t('percentageCalculator', 'clear') || 'Clear All'}
+                    {t('clear') || 'Clear All'}
                 </button>
             </div>
         </div>
