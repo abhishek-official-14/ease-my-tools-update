@@ -27,6 +27,12 @@ import QRCodeTool from "./components/tools/QRCodeTool";
 import CurrencyConverter from "./components/tools/CurrencyConverter";
 import Base64Converter from "./components/tools/Base64Converter";
 import { useTranslation } from "react-i18next";
+import HashGenerator from "./components/tools/HashGenerator";
+import PasswordGenerator from "./components/tools/PasswordGenerator";
+import JwtDebugger from "./components/tools/JwtDebugger";
+import SslChecker from "./components/tools/SslChecker";
+import DataUriGenerator from "./components/tools/DataUriGenerator";
+// import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
   const { theme } = useTheme();
@@ -60,25 +66,25 @@ function App() {
       <WordCounter></WordCounter>
       <JSONFormatter></JSONFormatter>
       <ColorPicker></ColorPicker>
-
       <PercentageCalculator></PercentageCalculator>
-
       <MarkdownPreviewer></MarkdownPreviewer>
       <TextDiffChecker></TextDiffChecker>
       <QRCodeTool></QRCodeTool>
       <CurrencyConverter></CurrencyConverter>
       <Base64Converter></Base64Converter>
-
-
       <AgeCalculator></AgeCalculator>
-     
       <TimeCalculator></TimeCalculator>
       <CSVtoJSON></CSVtoJSON>
       <XMLFormatter></XMLFormatter>
       <URLEncoder></URLEncoder>
       <TextExtractor></TextExtractor>
       <LoremIpsumGenerator></LoremIpsumGenerator>
-
+      <HashGenerator></HashGenerator>
+      <PasswordGenerator></PasswordGenerator>
+      <JwtDebugger></JwtDebugger>
+      <SslChecker></SslChecker>
+      <DataUriGenerator></DataUriGenerator>
+      {/* <Mp4ToGif></Mp4ToGif> */}
       <Footer></Footer>
     </>
   );

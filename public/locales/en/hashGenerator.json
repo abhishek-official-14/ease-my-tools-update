@@ -1,0 +1,22 @@
+{
+    "title": "Hash Generator",
+    "subtitle": "Generate MD5, SHA-1, and SHA-256 hashes",
+    "enterText": "Please enter some text",
+    "inputText": "Input Text",
+    "textPlaceholder": "Enter text to generate hashes...",
+    "generateHashes": "Generate Hashes",
+    "generating": "Generating...",
+    "clear": "Clear All",
+    "generatedHashes": "Generated Hashes",
+    "copy": "Copy",
+    "copied": "Copied to clipboard!",
+    "aboutHashing": "About Hash Functions",
+    "md5Info": "128-bit hash function. Fast but considered cryptographically broken.",
+    "sha1Info": "160-bit hash function. No longer considered secure against attacks.",
+    "sha256Info": "256-bit hash function. Part of SHA-2 family, currently secure.",
+    "commonUses": "Common Uses:",
+    "use1": "Data integrity verification",
+    "use2": "Digital signatures",
+    "use3": "Password storage",
+    "use4": "File checksums"
+}
