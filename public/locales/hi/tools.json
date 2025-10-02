@@ -1,0 +1,82 @@
+{
+    "searchPlaceholder": "टूल्स खोजें...",
+    "clickToExplore": "एक्सप्लोर करने के लिए क्लिक करें",
+    "back": "वापस",
+    "toolsAvailable": "{{count}} टूल उपलब्ध",
+    "clickToUse": "इस टूल का उपयोग करने के लिए क्लिक करें",
+    "categories": {
+        "pdf": {
+            "title": "PDF टूल्स",
+            "description": "PDF फाइलों को एडिट, कन्वर्ट और मैनेज करें",
+            "count": "6 टूल"
+        },
+        "image": {
+            "title": "इमेज टूल्स",
+            "description": "इमेज को रीसाइज़, कन्वर्ट और एडिट करें",
+            "count": "5 टूल"
+        },
+        "video": {
+            "title": "वीडियो टूल्स",
+            "description": "वीडियो फाइलों को प्रोसेस और कन्वर्ट करें",
+            "count": "4 टूल"
+        },
+        "ai": {
+            "title": "AI राइटिंग टूल्स",
+            "description": "AI-पावर्ड राइटिंग असिस्टेंट",
+            "count": "4 टूल"
+        },
+        "file": {
+            "title": "फाइल टूल्स",
+            "description": "फाइल कन्वर्जन और मैनेजमेंट",
+            "count": "4 टूल"
+        },
+        "converters": {
+            "title": "कन्वर्टर्स",
+            "description": "विभिन्न फॉर्मेट कन्वर्टर्स",
+            "count": "4 टूल"
+        },
+        "text": {
+            "title": "टेक्स्ट टूल्स",
+            "description": "टेक्स्ट फॉर्मेटिंग और एनालिसिस",
+            "count": "4 टूल"
+        },
+        "generators": {
+            "title": "जनरेटर्स",
+            "description": "कोड और कंटेंट जनरेटर्स",
+            "count": "2 टूल"
+        }
+    },
+    "tools": {
+        "PDFtoWord": "PDF से वर्ड",
+        "PDFtoExcel": "PDF से एक्सेल",
+        "PDFCompressor": "PDF कंप्रेसर",
+        "PDFMerge": "PDF मर्ज",
+        "PDFSplit": "PDF स्प्लिट",
+        "PDFCreator": "PDF क्रिएटर",
+        "ImageResizer": "इमेज रीसाइज़र",
+        "RemoveBackground": "बैकग्राउंड रिमूवर",
+        "ImageCompressor": "इमेज कंप्रेसर",
+        "FormatConverter": "फॉर्मेट कन्वर्टर",
+        "ColorPicker": "कलर पिकर",
+        "VideoCompressor": "वीडियो कंप्रेसर",
+        "MuteVideo": "वीडियो म्यूट",
+        "TrimVideo": "वीडियो ट्रिम",
+        "ParagraphWriter": "पैराग्राफ राइटर",
+        "TextSummarizer": "टेक्स्ट समरी",
+        "GrammarChecker": "ग्रामर चेकर",
+        "ContentRewriter": "कंटेंट रिव्राइटर",
+        "SplitExcel": "एक्सेल स्प्लिट",
+        "CSVtoJSON": "CSV से JSON",
+        "FileCompressor": "फाइल कंप्रेसर",
+        "Base64Converter": "Base64 कन्वर्टर",
+        "CaseConverter": "केस कन्वर्टर",
+        "CurrencyConverter": "करेंसी कन्वर्टर",
+        "UnitConverter": "यूनिट कन्वर्टर",
+        "JSONFormatter": "JSON फॉर्मेटर",
+        "MarkdownPreviewer": "मार्कडाउन प्रिव्यूअर",
+        "TextDiffChecker": "टेक्स्ट डिफ चेकर",
+        "WordCounter": "वर्ड काउंटर",
+        "QRCodeGenerator": "QR कोड जनरेटर",
+        "QRCodeReader": "QR कोड रीडर"
+    }
+}
