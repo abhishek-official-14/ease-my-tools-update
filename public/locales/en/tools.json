@@ -1,0 +1,82 @@
+{
+    "searchPlaceholder": "Search tools...",
+    "clickToExplore": "Click to explore",
+    "back": "Back",
+    "toolsAvailable": "{{count}} tools available",
+    "clickToUse": "Click to use this tool",
+    "categories": {
+        "pdf": {
+            "title": "PDF Tools",
+            "description": "Edit, convert and manage PDF files",
+            "count": "6 tools"
+        },
+        "image": {
+            "title": "Image Tools",
+            "description": "Resize, convert and edit images",
+            "count": "5 tools"
+        },
+        "video": {
+            "title": "Video Tools",
+            "description": "Process and convert video files",
+            "count": "4 tools"
+        },
+        "ai": {
+            "title": "AI Write Tools",
+            "description": "AI-powered writing assistants",
+            "count": "4 tools"
+        },
+        "file": {
+            "title": "File Tools",
+            "description": "File conversion and management",
+            "count": "4 tools"
+        },
+        "converters": {
+            "title": "Converters",
+            "description": "Various format converters",
+            "count": "4 tools"
+        },
+        "text": {
+            "title": "Text Tools",
+            "description": "Text formatting and analysis",
+            "count": "4 tools"
+        },
+        "generators": {
+            "title": "Generators",
+            "description": "Code and content generators",
+            "count": "2 tools"
+        }
+    },
+    "tools": {
+        "PDFtoWord": "PDF to Word",
+        "PDFtoExcel": "PDF to Excel",
+        "PDFCompressor": "PDF Compressor",
+        "PDFMerge": "PDF Merge",
+        "PDFSplit": "PDF Split",
+        "PDFCreator": "PDF Creator",
+        "ImageResizer": "Image Resizer",
+        "RemoveBackground": "Remove Background",
+        "ImageCompressor": "Image Compressor",
+        "FormatConverter": "Format Converter",
+        "ColorPicker": "Color Picker",
+        "VideoCompressor": "Video Compressor",
+        "MuteVideo": "Mute Video",
+        "TrimVideo": "Trim Video",
+        "ParagraphWriter": "Paragraph Writer",
+        "TextSummarizer": "Text Summarizer",
+        "GrammarChecker": "Grammar Checker",
+        "ContentRewriter": "Content Rewriter",
+        "SplitExcel": "Split Excel",
+        "CSVtoJSON": "CSV to JSON",
+        "FileCompressor": "File Compressor",
+        "Base64Converter": "Base64 Converter",
+        "CaseConverter": "Case Converter",
+        "CurrencyConverter": "Currency Converter",
+        "UnitConverter": "Unit Converter",
+        "JSONFormatter": "JSON Formatter",
+        "MarkdownPreviewer": "Markdown Previewer",
+        "TextDiffChecker": "Text Diff Checker",
+        "WordCounter": "Word Counter",
+        "QRCodeGenerator": "QR Code Generator",
+        "QRCodeReader": "QR Code Reader"
+    }
+}

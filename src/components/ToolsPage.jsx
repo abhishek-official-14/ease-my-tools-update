@@ -1,142 +1,83 @@
-
 import { useState } from "react";
 import "../styles/ToolsPage.css";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../contexts/ThemeContext";
-
-import { FaQrcode, FaFileCode, FaExchangeAlt, FaPalette } from 'react-icons/fa';
-import { MdFormatColorText, MdOutlineImage, MdOutlineCurrencyExchange } from 'react-icons/md';
-import { BiCodeAlt, BiText } from 'react-icons/bi';
-import { AiOutlineFileText } from 'react-icons/ai';
-import { TbBinaryTree } from 'react-icons/tb';
-
-const toolCategoryCards = [
-    {
-        title: "PDF Tools",
-        description: "Solve Your PDF Problems",
-        color: "#7C3AED",
-        count: "45+ tools",
-        featured: "PDF Creator",
-        link: "/pdf",
-    },
-    {
-        title: "Image Tools",
-        description: "Solve Your Image Problems",
-        color: "#F97316",
-        count: "30+ tools",
-        featured: "Remove BG",
-        link: "/image",
-    },
-    {
-        title: "Video Tools",
-        description: "Solve Your Video Problems",
-        color: "#E11D48",
-        count: "10+ tools",
-        featured: "Mute Video",
-        link: "/video",
-    },
-    {
-        title: "AI Write",
-        description: "Solve Your Text Problems",
-        color: "#2563EB",
-        count: "10+ tools",
-        featured: "Paragraph Writer",
-        link: "/ai",
-    },
-    {
-        title: "File Tools",
-        description: "Solve Your File Problems",
-        color: "#0D9488",
-        count: "15+ tools",
-        featured: "Split Excel",
-        link: "/file",
-    },
-];
-
-const tools = [
-    { name: "Base64 Converter", link: "/base64-converter", icon: TbBinaryTree },
-    { name: "Case Converter", link: "/case-converter", icon: MdFormatColorText },
-    { name: "Color Picker", link: "/color-picker", icon: FaPalette },
-    { name: "Currency Converter", link: "/currency-converter", icon: MdOutlineCurrencyExchange },
-    { name: "Image Resizer", link: "/image-resizer", icon: MdOutlineImage },
-    { name: "JSON Formatter", link: "/json-formatter", icon: FaFileCode },
-    { name: "Markdown Previewer", link: "/markdown-previewer", icon: BiCodeAlt },
-    { name: "QR Code Generator", link: "/qr-code-generator", icon: FaQrcode },
-    { name: "QR Code Tool", link: "/qr-code-tool", icon: FaQrcode },
-    { name: "Text Diff Checker", link: "/text-diff-checker", icon: BiText },
-    { name: "Unit Converter", link: "/unit-converter", icon: FaExchangeAlt },
-    { name: "Word Counter", link: "/word-counter", icon: AiOutlineFileText }
-];
+import { useTranslation } from "react-i18next";
+import { getToolCategories, getAllTools } from "../data/toolsData";
+import Header from "./Header";
 
 const ToolsPage = () => {
     const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const { theme } = useTheme();
+    const { t } = useTranslation('tools');
 
+    const toolCategories = getToolCategories();
+    const allTools = getAllTools();
 
     const filteredTools = searchQuery.trim()
-        ? tools.filter(tool =>
+        ? allTools.filter(tool =>
             tool.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
         : [];
+
     const toolList = filteredTools.map(({ name, link, icon: Icon }) => (
         <li key={name} className="tool-item">
-            <a href={link} className="tool-link">
+            <div className="tool-link" onClick={() => navigate(link)}>
                 <Icon className="tool-icon" />
                 <span className="tool-label">{name}</span>
-            </a>
+            </div>
         </li>
     ));
 
-
     return (
-        <div className={`tools-page ${theme}`}>
-            {/* Search Bar */}
-            <div className="search-bar" onFocus={() => { setIsOpen(true) }} onBlur={() => { setIsOpen(false) }}>
-                <input
-                    type="text"
-                    placeholder="Search tools..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className={theme}
-                />
-                {/* <button className={theme}>Search</button> */}
-            </div>
-            {isOpen && filteredTools.length > 0 && <div className="tool-dropdown">
-                    <ul className="tool-list">
-                        {toolList}
-                    </ul>
-                </div>}
+        <>
+            <Header />
+            <div className={`tools-page ${theme}`}>
+                <div className="search-container">
+                    <div className="search-bar" onFocus={() => setIsOpen(true)}>
+                        <input
+                            type="text"
+                            placeholder={t('searchPlaceholder')}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className={theme}
+                        />
+                    </div>
 
-            {/* Tools Grid */}
-            <div className="tools-grid">
-                {toolCategoryCards.length > 0 ? (
-                    toolCategoryCards.map((tool, index) => (
+                    {isOpen && filteredTools.length > 0 && (
+                        <div className="tool-dropdown">
+                            <ul className="tool-list">
+                                {toolList}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+
+                <div className="tools-grid">
+                    {toolCategories.map((category) => (
                         <div
                             className={`tool-card ${theme}`}
-                            key={index}
-                            style={{ backgroundColor: tool.color }}
-                            onClick={() => navigate(tool.link)}
+                            key={category.id}
+                            style={{ backgroundColor: category.color }}
+                            onClick={() => navigate(category.link)}
                         >
                             <div className="tool-header">
-                                <h3>{tool.title}</h3>
-                                <span className="tool-count">{tool.count}</span>
+                                <category.icon className="category-icon" />
+                                <h3>{category.title}</h3>
+                                <span className="tool-count">{category.count}</span>
                             </div>
-                            <p>{tool.description}</p>
+                            <p>{category.description}</p>
                             <div className="tool-footer">
-                                <span>Featured Tool:</span>
-                                <strong>{tool.featured}</strong>
+                                <span>Click to explore</span>
                             </div>
                         </div>
-                    ))
-                ) : (
-                    <p className="no-results">No cards found 😔</p>
-                )}
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default ToolsPage;
-
