@@ -1,0 +1,115 @@
+tools-2-update
+├─ .gitignore
+├─ declarations.d.ts
+├─ eslint.config.js
+├─ index.html
+├─ jsconfig.json
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ locales
+│  │  ├─ en
+│  │  │  ├─ ageCalculator.json
+│  │  │  ├─ base64.json
+│  │  │  ├─ caseConverter.json
+│  │  │  ├─ colorPicker.json
+│  │  │  ├─ csvToJson.json
+│  │  │  ├─ header.json
+│  │  │  ├─ imageResizer.json
+│  │  │  ├─ jsonFormatter.json
+│  │  │  ├─ loremIpsum.json
+│  │  │  ├─ navbar.json
+│  │  │  ├─ percentageCalculator.json
+│  │  │  ├─ qrGenerator.json
+│  │  │  ├─ textExtractor.json
+│  │  │  ├─ timeCalculator.json
+│  │  │  ├─ unitConverter.json
+│  │  │  ├─ urlEncoder.json
+│  │  │  ├─ wordCounter.json
+│  │  │  └─ xmlFormatter.json
+│  │  └─ hi
+│  │     ├─ ageCalculator.json
+│  │     ├─ base64.json
+│  │     ├─ caseConverter.json
+│  │     ├─ colorPicker.json
+│  │     ├─ csvToJson.json
+│  │     ├─ header.json
+│  │     ├─ imageResizer.json
+│  │     ├─ jsonFormatter.json
+│  │     ├─ loremIpsum.json
+│  │     ├─ navbar.json
+│  │     ├─ percentageCalculator.json
+│  │     ├─ qrGenerator.json
+│  │     ├─ textExtractor.json
+│  │     ├─ timeCalculator.json
+│  │     ├─ unitConverter.json
+│  │     ├─ urlEncoder.json
+│  │     ├─ wordCounter.json
+│  │     └─ xmlFormatter.json
+│  └─ vite.svg
+├─ README.md
+├─ src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ assets
+│  │  ├─ EaseMyTools.svg
+│  │  └─ react.svg
+│  ├─ components
+│  │  ├─ Footer.jsx
+│  │  ├─ Header.jsx
+│  │  ├─ LanguageSelector.jsx
+│  │  ├─ Navbar.jsx
+│  │  ├─ tools
+│  │  │  ├─ AgeCalculator.jsx
+│  │  │  ├─ Base64Converter.jsx
+│  │  │  ├─ CaseConverter.jsx
+│  │  │  ├─ ColorPicker.jsx
+│  │  │  ├─ CSVtoJSON.jsx
+│  │  │  ├─ CurrencyConverter.jsx
+│  │  │  ├─ ImageResizer.jsx
+│  │  │  ├─ JSONFormatter.jsx
+│  │  │  ├─ LoremIpsumGenerator.jsx
+│  │  │  ├─ MarkdownPreviewer.jsx
+│  │  │  ├─ PercentageCalculator.jsx
+│  │  │  ├─ QRCodeTool.jsx
+│  │  │  ├─ TextDiffChecker.jsx
+│  │  │  ├─ TextExtractor.jsx
+│  │  │  ├─ TimeCalculator.jsx
+│  │  │  ├─ UnitConverter.jsx
+│  │  │  ├─ URLEncoder.jsx
+│  │  │  ├─ WordCounter.jsx
+│  │  │  └─ XMLFormatter.jsx
+│  │  └─ ToolsPage.jsx
+│  ├─ contexts
+│  │  └─ ThemeContext.jsx
+│  ├─ i18n.js
+│  ├─ index.css
+│  ├─ main.jsx
+│  └─ styles
+│     ├─ Footer.css
+│     ├─ Header.css
+│     ├─ Navbar.css
+│     ├─ tools
+│     │  ├─ AgeCalculator.css
+│     │  ├─ Base64Converter.css
+│     │  ├─ Base64Tool.css
+│     │  ├─ CaseConverter.css
+│     │  ├─ ColorPicker.css
+│     │  ├─ CSVtoJSON.css
+│     │  ├─ CurrencyConverter.css
+│     │  ├─ imageresizer.css
+│     │  ├─ JSONFormatter.css
+│     │  ├─ LoremIpsumGenerator.css
+│     │  ├─ MarkdownPreviewer.css
+│     │  ├─ PercentageCalculator.css
+│     │  ├─ QRCodeGenerator.css
+│     │  ├─ QRCodeTool.css
+│     │  ├─ TextDiffChecker.css
+│     │  ├─ TextExtractor.css
+│     │  ├─ TimeCalculator.css
+│     │  ├─ unitconverter.css
+│     │  ├─ URLEncoder.css
+│     │  ├─ WordCounter.css
+│     │  └─ XMLFormatter.css
+│     └─ ToolsPage.css
+└─ vite.config.js

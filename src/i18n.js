@@ -16,7 +16,7 @@ i18n
         backend: {
             loadPath: "/locales/{{lng}}/{{ns}}.json" // path to JSONs
         },
-        ns: ["header", "navbar"],
+        ns: ["header", "navbar","tools"],
         defaultNS: "header"
     });
 
