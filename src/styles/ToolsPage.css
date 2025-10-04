@@ -111,7 +111,7 @@ body.dark .tool-link:hover {
 /* Main Tools Grid */
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
@@ -219,7 +219,7 @@ body.dark .tool-link:hover {
 /* Category Tools Grid */
 .category-tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 2rem;
   opacity: 0;
   transform: translateY(20px);
@@ -323,7 +323,7 @@ body.dark .not-found {
 /* Main content */
 .main-content {
   flex: 1;
-  padding-top: 2rem;
+  /* padding-top: 0rem; */
 }
 
 /* Responsive */

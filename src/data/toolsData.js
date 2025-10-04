@@ -55,6 +55,7 @@ export const toolsByCategory = {
     web: [
         { name: "URL Encoder", link: "/url-encoder", icon: FaGlobe },
         { name: "Text Extractor", link: "/text-extractor", icon: FaTextHeight },
+        { name: "SSL Checker", link: "/new-tool", icon: FaTextHeight },
     ],
     generators: [
         { name: "Lorem Ipsum Generator", link: "/lorem-ipsum-generator", icon: FaTextHeight },
