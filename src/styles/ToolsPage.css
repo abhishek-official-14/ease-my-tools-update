@@ -184,7 +184,7 @@
 
 /* Category Card - Fixed width and height */
 .category-card {
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 1.25rem;
   cursor: pointer;
   transition: all 0.3s ease;

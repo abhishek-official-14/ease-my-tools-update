@@ -25,7 +25,8 @@ const ToolsPage = () => {
 
     const toolList = filteredTools.map(({ name, link, icon: Icon }) => (
         <li key={name} className="tool-item">
-            <div className="tool-link" onClick={() => navigate(link)}>
+            <div className="tool-link" onClick={() => {navigate(link); console.log(link);
+            }}>
                 <Icon className="tool-icon" />
                 <span className="tool-label">{name}</span>
             </div>
@@ -66,7 +67,7 @@ const ToolsPage = () => {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             onFocus={() => setIsOpen(true)}
-                            onBlur={() => setTimeout(() => setIsOpen(false), 200)}
+                            onBlur={() => setTimeout(() => setIsOpen(false), 500)}
                         />
                     </div>
                     {isOpen && filteredTools.length > 0 && (
