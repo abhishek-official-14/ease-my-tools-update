@@ -25,7 +25,7 @@ import {
     TbBinaryTree
 } from 'react-icons/tb';
 
-// Only include categories that have tools
+// Only include categories that have tools.
 export const toolsByCategory = {
     image: [
         { name: "Image Resizer", link: "/image-resizer", icon: MdOutlineImage },

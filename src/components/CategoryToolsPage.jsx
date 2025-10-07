@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../styles/ToolsPage.css";
+import "../styles/CategoryToolsPage.css";
 import { useTheme } from "../contexts/ThemeContext";
 import { toolsByCategory } from "../data/toolsData";
 
