@@ -1,4 +1,4 @@
-tools-2-update
+tools-2-master
 ├─ .gitignore
 ├─ declarations.d.ts
 ├─ eslint.config.js
@@ -6,6 +6,7 @@ tools-2-update
 ├─ jsconfig.json
 ├─ package-lock.json
 ├─ package.json
+├─ project-hierarchy.txt
 ├─ public
 │  ├─ locales
 │  │  ├─ en
@@ -14,15 +15,27 @@ tools-2-update
 │  │  │  ├─ caseConverter.json
 │  │  │  ├─ colorPicker.json
 │  │  │  ├─ csvToJson.json
+│  │  │  ├─ dataUriGenerator.json
+│  │  │  ├─ hashGenerator.json
 │  │  │  ├─ header.json
 │  │  │  ├─ imageResizer.json
+│  │  │  ├─ imageToSvg.json
 │  │  │  ├─ jsonFormatter.json
+│  │  │  ├─ jwtDebugger.json
 │  │  │  ├─ loremIpsum.json
+│  │  │  ├─ mp4ToGif.json
 │  │  │  ├─ navbar.json
+│  │  │  ├─ nutritionAdvisor.json
+│  │  │  ├─ nutritionMaster.json
+│  │  │  ├─ passwordGenerator.json
 │  │  │  ├─ percentageCalculator.json
 │  │  │  ├─ qrGenerator.json
+│  │  │  ├─ removeBg.json
+│  │  │  ├─ sslChecker.json
+│  │  │  ├─ svgConverter.json
 │  │  │  ├─ textExtractor.json
 │  │  │  ├─ timeCalculator.json
+│  │  │  ├─ tools.json
 │  │  │  ├─ unitConverter.json
 │  │  │  ├─ urlEncoder.json
 │  │  │  ├─ wordCounter.json
@@ -33,15 +46,23 @@ tools-2-update
 │  │     ├─ caseConverter.json
 │  │     ├─ colorPicker.json
 │  │     ├─ csvToJson.json
+│  │     ├─ dataUriGenerator.json
+│  │     ├─ hashGenerator.json
 │  │     ├─ header.json
 │  │     ├─ imageResizer.json
 │  │     ├─ jsonFormatter.json
+│  │     ├─ jwtDebugger.json
 │  │     ├─ loremIpsum.json
+│  │     ├─ mp4ToGif.json
 │  │     ├─ navbar.json
+│  │     ├─ passwordGenerator.json
 │  │     ├─ percentageCalculator.json
 │  │     ├─ qrGenerator.json
+│  │     ├─ removeBg.json
+│  │     ├─ sslChecker.json
 │  │     ├─ textExtractor.json
 │  │     ├─ timeCalculator.json
+│  │     ├─ tools.json
 │  │     ├─ unitConverter.json
 │  │     ├─ urlEncoder.json
 │  │     ├─ wordCounter.json
@@ -55,6 +76,7 @@ tools-2-update
 │  │  ├─ EaseMyTools.svg
 │  │  └─ react.svg
 │  ├─ components
+│  │  ├─ CategoryToolsPage.jsx
 │  │  ├─ Footer.jsx
 │  │  ├─ Header.jsx
 │  │  ├─ LanguageSelector.jsx
@@ -66,13 +88,24 @@ tools-2-update
 │  │  │  ├─ ColorPicker.jsx
 │  │  │  ├─ CSVtoJSON.jsx
 │  │  │  ├─ CurrencyConverter.jsx
+│  │  │  ├─ DataUriGenerator.jsx
+│  │  │  ├─ HashGenerator.jsx
 │  │  │  ├─ ImageResizer.jsx
+│  │  │  ├─ ImageToSvg.jsx
 │  │  │  ├─ JSONFormatter.jsx
+│  │  │  ├─ JwtDebugger.jsx
 │  │  │  ├─ LoremIpsumGenerator.jsx
 │  │  │  ├─ MarkdownPreviewer.jsx
+│  │  │  ├─ Mp4ToGif.jsx
+│  │  │  ├─ NutritionMaster.jsx
+│  │  │  ├─ PasswordGenerator.jsx
 │  │  │  ├─ PercentageCalculator.jsx
 │  │  │  ├─ QRCodeTool.jsx
+│  │  │  ├─ RemoveBackground.jsx
+│  │  │  ├─ SslChecker.jsx
+│  │  │  ├─ SvgConverter.jsx
 │  │  │  ├─ TextDiffChecker.jsx
+│  │  │  ├─ TextDiffChecker1.jsx
 │  │  │  ├─ TextExtractor.jsx
 │  │  │  ├─ TimeCalculator.jsx
 │  │  │  ├─ UnitConverter.jsx
@@ -82,6 +115,8 @@ tools-2-update
 │  │  └─ ToolsPage.jsx
 │  ├─ contexts
 │  │  └─ ThemeContext.jsx
+│  ├─ data
+│  │  └─ toolsData.js
 │  ├─ i18n.js
 │  ├─ index.css
 │  ├─ main.jsx
@@ -97,13 +132,23 @@ tools-2-update
 │     │  ├─ ColorPicker.css
 │     │  ├─ CSVtoJSON.css
 │     │  ├─ CurrencyConverter.css
-│     │  ├─ imageresizer.css
+│     │  ├─ DataUriGenerator.css
+│     │  ├─ HashGenerator.css
+│     │  ├─ ImageResizer.css
+│     │  ├─ ImageToSvg.css
 │     │  ├─ JSONFormatter.css
+│     │  ├─ JwtDebugger.css
 │     │  ├─ LoremIpsumGenerator.css
 │     │  ├─ MarkdownPreviewer.css
+│     │  ├─ Mp4ToGif.css
+│     │  ├─ NutritionMaster.css
+│     │  ├─ PasswordGenerator.css
 │     │  ├─ PercentageCalculator.css
 │     │  ├─ QRCodeGenerator.css
 │     │  ├─ QRCodeTool.css
+│     │  ├─ RemoveBackground.css
+│     │  ├─ SslChecker.css
+│     │  ├─ SvgConverter.css
 │     │  ├─ TextDiffChecker.css
 │     │  ├─ TextExtractor.css
 │     │  ├─ TimeCalculator.css

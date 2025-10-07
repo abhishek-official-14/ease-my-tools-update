@@ -37,6 +37,8 @@ import SslChecker from "./components/tools/SslChecker";
 import DataUriGenerator from "./components/tools/DataUriGenerator";
 import SvgConverter from "./components/tools/SvgConverter";
 import ImageToSvg from "./components/tools/ImageToSvg";
+import NutritionMaster from "./components/tools/NutritionMaster";
+import RemoveBackground from "./components/tools/RemoveBackground";
 // import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
@@ -89,9 +91,11 @@ function App() {
             <Route path="/text-extractor" element={<TextExtractor />} />
             <Route path="/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
             <Route path="/qr-code-tool" element={<QRCodeTool />} />
-            <Route path="/new-tool" element={<SslChecker></SslChecker>} />
-            <Route path="/new-tool2" element={<SvgConverter/>} />
-            <Route path="/new-tool3" element={<ImageToSvg/>} />
+            <Route path="/ssl-checker" element={<SslChecker></SslChecker>} />
+            <Route path="/svg-converter" element={<SvgConverter/>} />
+            <Route path="/image-to-svg" element={<ImageToSvg/>} />
+            <Route path="/nutrition-master" element={<NutritionMaster/>} />
+            <Route path="/remove-background" element={<RemoveBackground/>} />
 
             {/* 404 Page */}
             <Route path="*" element={
