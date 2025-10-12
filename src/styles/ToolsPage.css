@@ -119,11 +119,13 @@
   font-size: 0.85rem;
 }
 
+
 /* Categories Slider */
 .categories-slider {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+
 }
 
 .cards-grid-wrapper {
@@ -284,9 +286,12 @@
   flex-shrink: 0;
 }
 
+
+
 .category-card:hover .card-footer {
   transform: translateX(3px);
   opacity: 1;
+
 }
 
 /* Slider Dots */
@@ -379,9 +384,11 @@
     left: -5px;
   }
 
+
   .nav-next {
     right: -5px;
   }
+
 
   .cards-grid {
     grid-template-columns: 1fr;

@@ -253,3 +253,258 @@ const CSVtoJSON = () => {
 };
 
 export default CSVtoJSON;
+
+
+
+// import React, { useState, useRef } from 'react';
+// import { useTranslation } from 'react-i18next';
+// import { useTheme } from '../../contexts/ThemeContext';
+// import '../../styles/tools/CsvToJson.css';
+
+// const CsvToJson = () => {
+//     const { t } = useTranslation('csvToJson');
+//     const { theme } = useTheme();
+//     const [csvInput, setCsvInput] = useState('');
+//     const [jsonOutput, setJsonOutput] = useState('');
+//     const [delimiter, setDelimiter] = useState(',');
+//     const [firstRowHeader, setFirstRowHeader] = useState(true);
+//     const [conversionInfo, setConversionInfo] = useState(null);
+//     const [isDragging, setIsDragging] = useState(false);
+//     const fileInputRef = useRef(null);
+
+//     const delimiters = {
+//         ',': t('comma'),
+//         ';': t('semicolon'),
+//         '\t': t('tab'),
+//         '|': t('pipe')
+//     };
+
+//     const parseCSV = (text) => {
+//         const lines = text.split('\n').filter(line => line.trim() !== '');
+//         if (lines.length === 0) return [];
+
+//         const headers = firstRowHeader 
+//             ? lines[0].split(delimiter).map(header => header.trim())
+//             : lines[0].split(delimiter).map((_, index) => `column${index + 1}`);
+
+//         const startIndex = firstRowHeader ? 1 : 0;
+//         const result = [];
+
+//         for (let i = startIndex; i < lines.length; i++) {
+//             const currentLine = lines[i];
+//             const values = currentLine.split(delimiter);
+//             const obj = {};
+
+//             headers.forEach((header, index) => {
+//                 obj[header] = values[index] ? values[index].trim() : '';
+//             });
+
+//             result.push(obj);
+//         }
+
+//         setConversionInfo({
+//             rowsConverted: result.length,
+//             columnsDetected: headers.length,
+//             headers: headers
+//         });
+
+//         return result;
+//     };
+
+//     const convertToJson = () => {
+//         try {
+//             if (!csvInput.trim()) {
+//                 alert('Please enter CSV data or upload a file');
+//                 return;
+//             }
+
+//             const jsonData = parseCSV(csvInput);
+//             setJsonOutput(JSON.stringify(jsonData, null, 2));
+//         } catch (error) {
+//             alert('Error converting CSV to JSON: ' + error.message);
+//         }
+//     };
+
+//     const handleFileUpload = (file) => {
+//         const reader = new FileReader();
+//         reader.onload = (e) => {
+//             setCsvInput(e.target.result);
+//         };
+//         reader.readAsText(file);
+//     };
+
+//     const handleFileSelect = (event) => {
+//         const file = event.target.files[0];
+//         if (file && file.type === 'text/csv') {
+//             handleFileUpload(file);
+//         } else {
+//             alert('Please select a valid CSV file');
+//         }
+//     };
+
+//     const handleDragOver = (e) => {
+//         e.preventDefault();
+//         setIsDragging(true);
+//     };
+
+//     const handleDragLeave = (e) => {
+//         e.preventDefault();
+//         setIsDragging(false);
+//     };
+
+//     const handleDrop = (e) => {
+//         e.preventDefault();
+//         setIsDragging(false);
+//         const file = e.dataTransfer.files[0];
+//         if (file && file.type === 'text/csv') {
+//             handleFileUpload(file);
+//         } else {
+//             alert('Please drop a valid CSV file');
+//         }
+//     };
+
+//     const clearAll = () => {
+//         setCsvInput('');
+//         setJsonOutput('');
+//         setConversionInfo(null);
+//         if (fileInputRef.current) {
+//             fileInputRef.current.value = '';
+//         }
+//     };
+
+//     const copyJson = () => {
+//         navigator.clipboard.writeText(jsonOutput);
+//         alert('JSON copied to clipboard!');
+//     };
+
+//     const downloadJson = () => {
+//         const blob = new Blob([jsonOutput], { type: 'application/json' });
+//         const url = URL.createObjectURL(blob);
+//         const a = document.createElement('a');
+//         a.href = url;
+//         a.download = 'converted.json';
+//         a.click();
+//         URL.revokeObjectURL(url);
+//     };
+
+//     return (
+//         <div className={`csv-to-json ${theme}`}>
+//             <div className="tool-header">
+//                 <h1>{t('title')}</h1>
+//                 <p>{t('subtitle')}</p>
+//             </div>
+
+//             <div className="converter-container">
+//                 <div className="input-section">
+//                     <div className="upload-section">
+//                         <div 
+//                             className={`drop-zone ${isDragging ? 'dragging' : ''}`}
+//                             onDragOver={handleDragOver}
+//                             onDragLeave={handleDragLeave}
+//                             onDrop={handleDrop}
+//                         >
+//                             <input
+//                                 ref={fileInputRef}
+//                                 type="file"
+//                                 accept=".csv"
+//                                 onChange={handleFileSelect}
+//                                 className="file-input"
+//                             />
+//                             <div className="upload-text">
+//                                 <span className="upload-icon">📁</span>
+//                                 <span>{t('uploadCsv')}</span>
+//                                 <span className="drag-text">{t('dragDrop')}</span>
+//                             </div>
+//                         </div>
+//                     </div>
+
+//                     <div className="csv-input-section">
+//                         <label>{t('csvInput')}</label>
+//                         <textarea
+//                             value={csvInput}
+//                             onChange={(e) => setCsvInput(e.target.value)}
+//                             placeholder={t('csvPlaceholder')}
+//                             rows="8"
+//                         />
+//                     </div>
+//                 </div>
+
+//                 <div className="settings-section">
+//                     <div className="setting-group">
+//                         <label>{t('delimiter')}</label>
+//                         <select value={delimiter} onChange={(e) => setDelimiter(e.target.value)}>
+//                             {Object.entries(delimiters).map(([value, label]) => (
+//                                 <option key={value} value={value}>{label}</option>
+//                             ))}
+//                         </select>
+//                     </div>
+
+//                     <div className="setting-group">
+//                         <label className="checkbox-label">
+//                             <input
+//                                 type="checkbox"
+//                                 checked={firstRowHeader}
+//                                 onChange={(e) => setFirstRowHeader(e.target.checked)}
+//                             />
+//                             {t('firstRowHeader')}
+//                         </label>
+//                     </div>
+//                 </div>
+
+//                 <div className="action-buttons">
+//                     <button onClick={convertToJson} className="primary-btn">
+//                         {t('convert')}
+//                     </button>
+//                     <button onClick={clearAll} className="secondary-btn">
+//                         {t('clear')}
+//                     </button>
+//                 </div>
+
+//                 {conversionInfo && (
+//                     <div className="conversion-info">
+//                         <h3>{t('conversionInfo')}</h3>
+//                         <div className="info-grid">
+//                             <div className="info-item">
+//                                 <span className="info-label">{t('rowsConverted')}:</span>
+//                                 <span className="info-value">{conversionInfo.rowsConverted}</span>
+//                             </div>
+//                             <div className="info-item">
+//                                 <span className="info-label">{t('columnsDetected')}:</span>
+//                                 <span className="info-value">{conversionInfo.columnsDetected}</span>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 )}
+
+//                 {jsonOutput && (
+//                     <div className="output-section">
+//                         <div className="output-header">
+//                             <h3>{t('jsonOutput')}</h3>
+//                             <div className="output-actions">
+//                                 <button onClick={copyJson} className="copy-btn">
+//                                     {t('copyJson')}
+//                                 </button>
+//                                 <button onClick={downloadJson} className="download-btn">
+//                                     {t('downloadJson')}
+//                                 </button>
+//                             </div>
+//                         </div>
+//                         <pre className="json-output">{jsonOutput}</pre>
+//                     </div>
+//                 )}
+
+//                 <div className="csv-tips">
+//                     <h4>{t('csvTips')}</h4>
+//                     <ul>
+//                         <li>{t('tip1')}</li>
+//                         <li>{t('tip2')}</li>
+//                         <li>{t('tip3')}</li>
+//                         <li>{t('tip4')}</li>
+//                     </ul>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default CsvToJson;

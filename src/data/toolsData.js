@@ -7,14 +7,16 @@ import {
     FaFile,
     FaCalculator,
     FaGlobe,
-    FaTextHeight
+    FaTextHeight,
+    FaBeer
 } from 'react-icons/fa';
 import {
     MdFormatColorText,
     MdOutlineImage,
-    MdOutlineCurrencyExchange
+    MdOutlineCurrencyExchange,
+    MdAutoFixHigh
 } from 'react-icons/md';
-import {
+import {  
     BiCodeAlt,
     BiText
 } from 'react-icons/bi';
@@ -22,14 +24,22 @@ import {
     AiOutlineFileText
 } from 'react-icons/ai';
 import {
-    TbBinaryTree
+    TbBinaryTree,
+    TbVectorBezier,
+    TbVectorTriangle
 } from 'react-icons/tb';
 
+
+import { BsFiletypeSvg } from "react-icons/bs"
 // Only include categories that have tools.
+
 export const toolsByCategory = {
     image: [
         { name: "Image Resizer", link: "/image-resizer", icon: MdOutlineImage },
         { name: "Color Picker", link: "/color-picker", icon: FaPalette },
+        { name: "SvgConverter", link: "/svg-converter", icon: BsFiletypeSvg },
+        { name: "ImageToSvg", link: "/image-to-svg", icon: TbVectorTriangle },
+        { name: "RemoveBackground", link: "/remove-background", icon: MdAutoFixHigh },
     ],
     converters: [
         { name: "Unit Converter", link: "/unit-converter", icon: FaExchangeAlt },
@@ -55,6 +65,7 @@ export const toolsByCategory = {
     web: [
         { name: "URL Encoder", link: "/url-encoder", icon: FaGlobe },
         { name: "Text Extractor", link: "/text-extractor", icon: FaTextHeight },
+        { name: "SSL Checker", link: "/new-tool", icon: FaTextHeight },
     ],
     generators: [
         { name: "Lorem Ipsum Generator", link: "/lorem-ipsum-generator", icon: FaTextHeight },

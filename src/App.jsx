@@ -30,6 +30,16 @@ import CurrencyConverter from "./components/tools/CurrencyConverter";
 import Base64Converter from "./components/tools/Base64Converter";
 
 import { useTranslation } from "react-i18next";
+import HashGenerator from "./components/tools/HashGenerator";
+import PasswordGenerator from "./components/tools/PasswordGenerator";
+import JwtDebugger from "./components/tools/JwtDebugger";
+import SslChecker from "./components/tools/SslChecker";
+import DataUriGenerator from "./components/tools/DataUriGenerator";
+import SvgConverter from "./components/tools/SvgConverter";
+import ImageToSvg from "./components/tools/ImageToSvg";
+import NutritionMaster from "./components/tools/NutritionMaster";
+import RemoveBackground from "./components/tools/RemoveBackground";
+// import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
   const { theme } = useTheme();
@@ -47,6 +57,7 @@ function App() {
   }, [theme]);
 
   return (
+
     <Router>
       <div className="App">
         <Navbar />
@@ -80,6 +91,11 @@ function App() {
             <Route path="/text-extractor" element={<TextExtractor />} />
             <Route path="/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
             <Route path="/qr-code-tool" element={<QRCodeTool />} />
+            <Route path="/ssl-checker" element={<SslChecker></SslChecker>} />
+            <Route path="/svg-converter" element={<SvgConverter/>} />
+            <Route path="/image-to-svg" element={<ImageToSvg/>} />
+            <Route path="/nutrition-master" element={<NutritionMaster/>} />
+            <Route path="/remove-background" element={<RemoveBackground/>} />
 
             {/* 404 Page */}
             <Route path="*" element={
@@ -100,6 +116,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+
   );
 }
 
