@@ -2,15 +2,17 @@ import React from "react";
 import "../styles/Navbar.css";
 import { useTheme } from "../contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation("navbar");
   const menus = t("menus", { returnObjects: true }) || [];
+  const navigate = useNavigate();
 
   return (
     <header className={`navbar ${theme}`}>
-      <div className="logo">{t("logo")}</div>
+      <div className="logo" onClick={()=>{}}>{t("logo")}</div>
 
       <nav className="menu">
         {menus.

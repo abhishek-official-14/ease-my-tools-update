@@ -12,7 +12,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
     "jsx": "react-jsx",
     "checkJs": true,
     "target": "es6",

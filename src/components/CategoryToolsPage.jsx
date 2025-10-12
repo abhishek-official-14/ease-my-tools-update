@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/CategoryToolsPage.css";
 import { useTheme } from "../contexts/ThemeContext";
 import { toolsByCategory } from "../data/toolsData";
+import BackButton from "./BackButton";
 
 const CategoryToolsPage = () => {
     const { categoryId } = useParams();
@@ -19,9 +20,7 @@ const CategoryToolsPage = () => {
         return (
             <div className={`category-tools-page ${theme}`}>
                 <div className="category-header">
-                    <button className="back-button" onClick={() => navigate('/tools')}>
-                        ← Back to Tools
-                    </button>
+                    <BackButton></BackButton>
                     <h1>Category Not Found</h1>
                     <p>The category "{categoryId}" doesn't exist or has no tools.</p>
                     <button
@@ -53,9 +52,7 @@ const CategoryToolsPage = () => {
     return (
         <div className={`category-tools-page ${theme}`}>
             <div className="category-header">
-                <button className="back-button" onClick={() => navigate('/tools')}>
-                    ← Back to Tools
-                </button>
+                <BackButton></BackButton>
                 <h1>{getCategoryTitle()}</h1>
                 <p>{categoryTools.length} tools available</p>
             </div>

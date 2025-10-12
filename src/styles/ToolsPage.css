@@ -191,7 +191,7 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
-  width: 280px;
+  width: 275px;
   /* Fixed width */
   height: 160px;
   /* Fixed height */
@@ -246,7 +246,7 @@
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.125rem;
@@ -268,9 +268,9 @@
   margin-bottom: 0.75rem;
   line-height: 1.4;
   opacity: 0.9;
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -452,7 +452,7 @@
 
   .card-description {
     font-size: 0.75rem;
-    -webkit-line-clamp: 2;
+    /* -webkit-line-clamp: 2; */
   }
 }
 
