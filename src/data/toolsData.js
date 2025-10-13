@@ -8,7 +8,8 @@ import {
     FaCalculator,
     FaGlobe,
     FaTextHeight,
-    FaBeer
+    FaBeer,
+    FaHeartbeat
 } from 'react-icons/fa';
 import {
     MdFormatColorText,
@@ -40,12 +41,14 @@ export const toolsByCategory = {
         { name: "SvgConverter", link: "/svg-converter", icon: BsFiletypeSvg },
         { name: "ImageToSvg", link: "/image-to-svg", icon: TbVectorTriangle },
         { name: "RemoveBackground", link: "/remove-background", icon: MdAutoFixHigh },
+        { name: "Mp4ToGif", link: "/mp4-to-gif", icon: FaBeer },
     ],
     converters: [
         { name: "Unit Converter", link: "/unit-converter", icon: FaExchangeAlt },
         { name: "Case Converter", link: "/case-converter", icon: MdFormatColorText },
         { name: "Currency Converter", link: "/currency-converter", icon: MdOutlineCurrencyExchange },
         { name: "Base64 Converter", link: "/base64-converter", icon: TbBinaryTree },
+
     ],
     text: [
         { name: "Word Counter", link: "/word-counter", icon: AiOutlineFileText },
@@ -61,16 +64,25 @@ export const toolsByCategory = {
     file: [
         { name: "CSV to JSON", link: "/csv-to-json", icon: FaFile },
         { name: "XML Formatter", link: "/xml-formatter", icon: FaFileCode },
+        
     ],
     web: [
         { name: "URL Encoder", link: "/url-encoder", icon: FaGlobe },
         { name: "Text Extractor", link: "/text-extractor", icon: FaTextHeight },
-        { name: "SSL Checker", link: "/new-tool", icon: FaTextHeight },
+        { name: "SSL Checker", link: "/ssl-checker", icon: FaTextHeight },
+        { name: "JWT Debugger", link: "/jwt-debugger", icon: FaTextHeight },
     ],
     generators: [
         { name: "Lorem Ipsum Generator", link: "/lorem-ipsum-generator", icon: FaTextHeight },
         { name: "QR Code Tool", link: "/qr-code-tool", icon: FaQrcode },
+        { name: "Hash Generator", link: "/hash-generator", icon: TbVectorBezier },
+        { name: "Password Generator", link: "/password-generator", icon: TbVectorBezier },
+        { name: "Data URI Generator", link: "/data-uri-generator", icon: TbVectorBezier },
+    ],
+    health: [
+        { name: "Nutrition Master", link: "/nutrition-master", icon: FaTextHeight },
     ]
+    
 };
 
 export const categoryTitles = {
@@ -80,7 +92,8 @@ export const categoryTitles = {
     calculators: "Calculators",
     file: "File Tools",
     web: "Web Tools",
-    generators: "Generators"
+    generators: "Generators",
+    health: "Health Tools"
 };
 
 export const getAllTools = () => {
@@ -151,6 +164,15 @@ export const getToolCategories = () => {
             count: `${toolsByCategory.generators.length} tools`,
             icon: FaQrcode,
             link: "/tools/generators"
+        },
+        {
+            id: "health",
+            title: "Health Tools",
+            description: "Health and fitness utilities",
+            color: "#F43F5E",
+            count: `${toolsByCategory.health.length} tools`,
+            icon: FaHeartbeat,
+            link: "/tools/health"
         }
     ];
 };

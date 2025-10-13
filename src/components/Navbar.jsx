@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <header className={`navbar ${theme}`}>
-      <div className="logo" onClick={()=>{}}>{t("logo")}</div>
+      <div className="logo" onClick={()=>{navigate("/")}}>{t("logo")}</div>
 
       <nav className="menu">
         {menus.

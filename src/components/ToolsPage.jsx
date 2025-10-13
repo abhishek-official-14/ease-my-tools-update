@@ -25,8 +25,12 @@ const ToolsPage = () => {
 
     const toolList = filteredTools.map(({ name, link, icon: Icon }) => (
         <li key={name} className="tool-item">
-            <div className="tool-link" onClick={() => {navigate(link); console.log(link);
-            }}>
+            <div
+                className="tool-link"
+                onClick={() => {
+                    navigate(link);
+                }}
+            >
                 <Icon className="tool-icon" />
                 <span className="tool-label">{name}</span>
             </div>
@@ -48,17 +52,11 @@ const ToolsPage = () => {
         setCurrentSlide(index);
     };
 
-    const getCurrentSlideCards = () => {
-        const start = currentSlide * cardsPerSlide;
-        const end = start + cardsPerSlide;
-        return toolCategories.slice(start, end);
-    };
-
     return (
         <>
             <Header />
             <div className={`tools-page ${theme}`}>
-                {/* Search Bar */}
+                {/* 🔍 Search Bar */}
                 <div className="search-container">
                     <div className="search-bar">
                         <input
@@ -77,38 +75,66 @@ const ToolsPage = () => {
                     )}
                 </div>
 
-                {/* Tool Categories Slider */}
+                {/* 🎠 Tool Categories Slider */}
                 <div className="categories-slider">
                     <div className="cards-grid-wrapper">
-                        <button className="nav-arrow nav-prev" onClick={prevSlide}>‹</button>
-                        <button className="nav-arrow nav-next" onClick={nextSlide}>›</button>
+                        <button className="nav-arrow nav-prev" onClick={prevSlide}>
+                            ‹
+                        </button>
+                        <button className="nav-arrow nav-next" onClick={nextSlide}>
+                            ›
+                        </button>
 
-                        <div className="cards-grid">
-                            {getCurrentSlideCards().map((category) => (
-                                <div
-                                    key={category.id}
-                                    className="category-card"
-                                    style={{ backgroundColor: category.color }}
-                                    onClick={() => navigate(category.link)}
-                                >
-                                    <div className="card-top">
-                                        <div className="card-icon"><category.icon /></div>
-                                        <div className="card-title">{category.title}</div>
-                                        <div className="tools-count">{category.count} tools</div>
+                        <div className="slider-container">
+                            <div
+                                className="slider-track"
+                                style={{
+                                    transform: `translateX(-${currentSlide * 100}%)`,
+                                }}
+                            >
+                                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                                    <div key={slideIndex} className="cards-grid">
+                                        {toolCategories
+                                            .slice(
+                                                slideIndex * cardsPerSlide,
+                                                slideIndex * cardsPerSlide + cardsPerSlide
+                                            )
+                                            .map((category) => (
+                                                <div
+                                                    key={category.id}
+                                                    className="category-card"
+                                                    style={{ backgroundColor: category.color }}
+                                                    onClick={() => navigate(category.link)}
+                                                >
+                                                    <div className="card-top">
+                                                        <div className="card-icon">
+                                                            <category.icon />
+                                                        </div>
+                                                        <div className="card-title">{category.title}</div>
+                                                        <div className="tools-count">
+                                                            {category.count} tools
+                                                        </div>
+                                                    </div>
+                                                    <p className="card-description">
+                                                        {category.description}
+                                                    </p>
+                                                    <div className="card-footer">Click to explore →</div>
+                                                </div>
+                                            ))}
                                     </div>
-                                    <p className="card-description">{category.description}</p>
-                                    <div className="card-footer">Click to explore →</div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    {/* {totalSlides > 1 && (
+                    {/* ⚫ Slider Dots
+                    {totalSlides > 1 && (
                         <div className="slider-dots">
                             {Array.from({ length: totalSlides }).map((_, index) => (
                                 <button
                                     key={index}
-                                    className={`dot ${index === currentSlide ? "active" : ""}`}
+                                    className={`dot ${index === currentSlide ? "active" : ""
+                                        }`}
                                     onClick={() => goToSlide(index)}
                                 />
                             ))}
