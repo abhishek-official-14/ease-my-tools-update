@@ -29,9 +29,10 @@ import {
     TbVectorTriangle
 } from 'react-icons/tb';
 
-import { BsFiletypeSvg } from "react-icons/bs";
 
-// Only include categories that have tools
+import { BsFiletypeSvg } from "react-icons/bs"
+// Only include categories that have tools.
+
 export const toolsByCategory = {
     image: [
         { name: "Image Resizer", link: "/image-resizer", icon: MdOutlineImage },
