@@ -6,6 +6,7 @@ import ToolsPage from "./components/ToolsPage";
 import CategoryToolsPage from "./components/CategoryToolsPage";
 import { useTheme } from "./contexts/ThemeContext";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Footer from "./components/Footer";
 
 // Import all your tools
@@ -28,17 +29,15 @@ import TextDiffChecker from "./components/tools/TextDiffChecker";
 import QRCodeTool from "./components/tools/QRCodeTool";
 import CurrencyConverter from "./components/tools/CurrencyConverter";
 import Base64Converter from "./components/tools/Base64Converter";
-
-import { useTranslation } from "react-i18next";
-import HashGenerator from "./components/tools/HashGenerator";
-import PasswordGenerator from "./components/tools/PasswordGenerator";
-import JwtDebugger from "./components/tools/JwtDebugger";
-import SslChecker from "./components/tools/SslChecker";
 import DataUriGenerator from "./components/tools/DataUriGenerator";
-import SvgConverter from "./components/tools/SvgConverter";
+import HashGenerator from "./components/tools/HashGenerator";
 import ImageToSvg from "./components/tools/ImageToSvg";
+import JwtDebugger from "./components/tools/JwtDebugger";
 import NutritionMaster from "./components/tools/NutritionMaster";
+import PasswordGenerator from "./components/tools/PasswordGenerator";
 import RemoveBackground from "./components/tools/RemoveBackground";
+import SslChecker from "./components/tools/SslChecker";
+import SvgConverter from "./components/tools/SvgConverter";
 // import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
@@ -92,10 +91,18 @@ function App() {
             <Route path="/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
             <Route path="/qr-code-tool" element={<QRCodeTool />} />
             <Route path="/ssl-checker" element={<SslChecker></SslChecker>} />
-            <Route path="/svg-converter" element={<SvgConverter/>} />
-            <Route path="/image-to-svg" element={<ImageToSvg/>} />
-            <Route path="/nutrition-master" element={<NutritionMaster/>} />
-            <Route path="/remove-background" element={<RemoveBackground/>} />
+            <Route path="/svg-converter" element={<SvgConverter />} />
+            <Route path="/image-to-svg" element={<ImageToSvg />} />
+            <Route path="/nutrition-master" element={<NutritionMaster />} />
+            <Route path="/remove-background" element={<RemoveBackground />} />
+            <Route path="/hash-generator" element={<HashGenerator />} />
+            <Route path="/password-generator" element={<PasswordGenerator />} />
+            <Route path="/jwt-debugger" element={<JwtDebugger />} />
+            <Route path="/data-uri-generator" element={<DataUriGenerator />} />
+            {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
+
+
+            {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
 
             {/* 404 Page */}
             <Route path="*" element={
