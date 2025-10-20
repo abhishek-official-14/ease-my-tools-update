@@ -8,7 +8,8 @@
 
 /* Global Theme Setup */
 :root {
-  --bg-light: #ffffff;
+  /* --bg-light: #ffffff; */
+  --bg-light: #ebe4e4;
   --text-light: #111827;
   --card-light: #f9fafb;
 

@@ -38,6 +38,10 @@ import PasswordGenerator from "./components/tools/PasswordGenerator";
 import RemoveBackground from "./components/tools/RemoveBackground";
 import SslChecker from "./components/tools/SslChecker";
 import SvgConverter from "./components/tools/SvgConverter";
+import FaviconGenerator from "./components/tools/FaviconGenerator";
+import PDFImageExtractor from "./components/tools/PDFImageExtractor";
+import FileRenameTool from "./components/tools/FileRenameTool";
+import FileConverter from "./components/tools/FileConverter";
 // import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
@@ -99,6 +103,10 @@ function App() {
             <Route path="/password-generator" element={<PasswordGenerator />} />
             <Route path="/jwt-debugger" element={<JwtDebugger />} />
             <Route path="/data-uri-generator" element={<DataUriGenerator />} />
+            <Route path="/favicon-generator" element={<FaviconGenerator />} />
+            <Route path="/pdfImage-extractor" element={<PDFImageExtractor />} />
+            <Route path="/file-rename-tool" element={<FileRenameTool/>} />
+            <Route path="/file-converter" element={<FileConverter/>} />
             {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
 
 

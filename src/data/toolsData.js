@@ -9,13 +9,15 @@ import {
     FaGlobe,
     FaTextHeight,
     FaBeer,
-    FaHeartbeat
+    FaHeartbeat,
+    FaFileCsv
 } from 'react-icons/fa';
 import {
     MdFormatColorText,
     MdOutlineImage,
     MdOutlineCurrencyExchange,
-    MdAutoFixHigh
+    MdAutoFixHigh,
+    MdOutlineDriveFileRenameOutline
 } from 'react-icons/md';
 import {  
     BiCodeAlt,
@@ -26,12 +28,14 @@ import {
 } from 'react-icons/ai';
 import {
     TbBinaryTree,
+    TbFavicon,
     TbVectorBezier,
     TbVectorTriangle
 } from 'react-icons/tb';
 
 
 import { BsFiletypeSvg } from "react-icons/bs"
+import { VscFilePdf } from "react-icons/vsc"
 // Only include categories that have tools.
 
 export const toolsByCategory = {
@@ -55,6 +59,7 @@ export const toolsByCategory = {
         { name: "JSON Formatter", link: "/json-formatter", icon: FaFileCode },
         { name: "Markdown Previewer", link: "/markdown-previewer", icon: BiCodeAlt },
         { name: "Text Diff Checker", link: "/text-diff-checker", icon: BiText },
+        { name: "PDFImageExtractor", link: "/pdfImage-extractor", icon: VscFilePdf },
     ],
     calculators: [
         { name: "Percentage Calculator", link: "/percentage-calculator", icon: FaCalculator },
@@ -64,6 +69,8 @@ export const toolsByCategory = {
     file: [
         { name: "CSV to JSON", link: "/csv-to-json", icon: FaFile },
         { name: "XML Formatter", link: "/xml-formatter", icon: FaFileCode },
+        { name: "File Rename Tool", link: "/file-rename-tool", icon: MdOutlineDriveFileRenameOutline },
+        { name: "File Converter", link: "/file-converter", icon: FaFileCsv },
         
     ],
     web: [
@@ -71,6 +78,7 @@ export const toolsByCategory = {
         { name: "Text Extractor", link: "/text-extractor", icon: FaTextHeight },
         { name: "SSL Checker", link: "/ssl-checker", icon: FaTextHeight },
         { name: "JWT Debugger", link: "/jwt-debugger", icon: FaTextHeight },
+        { name: "FaviconGenerator", link: "/favicon-generator", icon: TbFavicon },
     ],
     generators: [
         { name: "Lorem Ipsum Generator", link: "/lorem-ipsum-generator", icon: FaTextHeight },
