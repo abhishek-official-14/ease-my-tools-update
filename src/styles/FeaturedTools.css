@@ -1,0 +1,133 @@
+.featured-tools {
+  padding: 4rem 2rem;
+  background: #f8fafc;
+}
+
+body.dark .featured-tools {
+  background: #0f172a;
+}
+
+.featured-tools .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-tools h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+body.dark .featured-tools h2 {
+  color: var(--text-dark);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+body.dark .section-subtitle {
+  color: #9ca3af;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.tool-card {
+  background: var(--card-light);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  position: relative;
+}
+
+body.dark .tool-card {
+  background: var(--card-dark);
+  border-color: #374151;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .tool-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tool-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ef4444;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tool-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tool-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+body.dark .tool-card h3 {
+  color: var(--text-dark);
+}
+
+.tool-card p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+body.dark .tool-card p {
+  color: #9ca3af;
+}
+
+.tool-btn {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tool-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .featured-tools {
+    padding: 3rem 1rem;
+  }
+  
+  .featured-tools h2 {
+    font-size: 2rem;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
