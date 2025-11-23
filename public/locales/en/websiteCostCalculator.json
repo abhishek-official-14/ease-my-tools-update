@@ -1,0 +1,92 @@
+{
+  "title": "Website Cost Calculator",
+  "subtitle": "Professional website development cost estimator for agencies and freelancers",
+  "projectDetails": "Project Details",
+  "projectName": "Project Name",
+  "projectNamePlaceholder": "Enter project name...",
+  "projectType": "Project Type",
+  "features": "Features & Functionality",
+  "design": "Design & UX",
+  "development": "Development",
+  "content": "Content & SEO",
+  "timeline": "Timeline",
+  "team": "Team & Rates",
+  "summary": "Cost Summary",
+  "export": "Export Proposal",
+  "calculate": "Calculate Cost",
+  "reset": "Reset",
+  "totalCost": "Total Estimated Cost",
+  "breakdown": "Cost Breakdown",
+  "assumptions": "Assumptions",
+  "notes": "Notes",
+  "projectTypes": {
+    "landing": "Landing Page",
+    "brochure": "Brochure Website",
+    "corporate": "Corporate Website",
+    "ecommerce": "E-commerce Store",
+    "webapp": "Web Application",
+    "custom": "Custom Platform"
+  },
+  "featuresList": {
+    "responsive": "Responsive Design",
+    "cms": "CMS Integration",
+    "blog": "Blog System",
+    "contact": "Contact Forms",
+    "social": "Social Media Integration",
+    "multilingual": "Multilingual Support",
+    "userAccounts": "User Accounts",
+    "payment": "Payment Gateway",
+    "inventory": "Inventory Management",
+    "booking": "Booking System",
+    "api": "API Integration",
+    "analytics": "Advanced Analytics"
+  },
+  "designOptions": {
+    "template": "Template-Based",
+    "custom": "Custom Design",
+    "premium": "Premium Custom",
+    "branding": "Branding Package"
+  },
+  "developmentOptions": {
+    "wordpress": "WordPress",
+    "shopify": "Shopify",
+    "react": "React/Next.js",
+    "vue": "Vue/Nuxt.js",
+    "angular": "Angular",
+    "customStack": "Custom Stack"
+  },
+  "contentOptions": {
+    "client": "Client Provides",
+    "basic": "Basic Writing",
+    "professional": "Professional Copy",
+    "seo": "SEO Optimized"
+  },
+  "timelineOptions": {
+    "rush": "Rush (2-4 weeks)",
+    "standard": "Standard (6-8 weeks)",
+    "extended": "Extended (10-12 weeks)",
+    "complex": "Complex (14+ weeks)"
+  },
+  "teamRoles": {
+    "projectManager": "Project Manager",
+    "designer": "UI/UX Designer",
+    "frontend": "Frontend Developer",
+    "backend": "Backend Developer",
+    "content": "Content Writer",
+    "seo": "SEO Specialist"
+  },
+  "costElements": {
+    "development": "Development",
+    "design": "Design",
+    "content": "Content",
+    "projectManagement": "Project Management",
+    "seo": "SEO",
+    "hosting": "Hosting & Maintenance",
+    "thirdParty": "Third-Party Services"
+  },
+  "exportOptions": {
+    "pdf": "Export PDF Proposal",
+    "doc": "Export Word Document",
+    "excel": "Export Excel Sheet"
+  }
+}

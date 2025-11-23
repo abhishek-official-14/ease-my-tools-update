@@ -4,7 +4,6 @@ import '../styles/HomePage.css';
 
 // Import the new sections
 import HeroSection from './HeroSection';
-import CategoriesSection from './CategoriesSection';
 import FeaturedTools from './FeaturedTools';
 import BenefitsSection from './BenefitsSection';
 import TestimonialsSection from './TestimonialsSection';
@@ -16,8 +15,7 @@ const HomePage = () => {
 
   return (
     <div className={`home-page ${theme}`}>
-      <HeroSection />
-      <CategoriesSection />
+      {/* <HeroSection /> */}
       <FeaturedTools />
       <BenefitsSection />
       <TestimonialsSection />

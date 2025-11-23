@@ -109,7 +109,6 @@
 //             <Route path="/file-converter" element={<FileConverter/>} />
 //             {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
 
-
 //             {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
 
 //             {/* 404 Page */}
@@ -136,10 +135,6 @@
 // }
 
 // export default App;
-
-
-
-
 
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import "./App.css";
@@ -212,7 +207,7 @@
 //           <Routes>
 //             {/* NEW: Home Page with enhanced design */}
 //             <Route path="/" element={<HomePage />} />
-            
+
 //             {/* Existing Tools Page (keep for /tools route) */}
 //             <Route path="/tools" element={<ToolsPage />} />
 
@@ -278,12 +273,6 @@
 
 // export default App;
 
-
-
-
-
-
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -294,7 +283,30 @@ import HomePage from "./components/HomePage"; // ← Add this import
 import { useTheme } from "./contexts/ThemeContext";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+// Add this import at the top with other imports
 import Footer from "./components/Footer";
+
+// Add these imports at the top
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditions from "./components/TermsConditions";
+import CookiePolicy from "./components/CookiePolicy";
+import About from "./components/About";
+import Contact from "./components/Contact";
+
+// Add these imports at the top
+import Features from "./components/Features";
+import Pricing from "./components/Pricing";
+import FAQ from "./components/FAQ";
+import MobileApp from "./components/MobileApp";
+import DesktopApp from "./components/DesktopApp";
+import API from "./components/API";
+// Add these imports at the top
+import Documentation from "./components/Documentation";
+import Business from "./components/Business";
+import Education from "./components/Education";
+import Security from "./components/Security";
+import Blog from "./components/Blog";
+import Press from "./components/Press";
 
 // Import all your tools
 import ImageResizer from "./components/tools/ImageResizer";
@@ -329,6 +341,8 @@ import FaviconGenerator from "./components/tools/FaviconGenerator";
 import PDFImageExtractor from "./components/tools/PDFImageExtractor";
 import FileRenameTool from "./components/tools/FileRenameTool";
 import FileConverter from "./components/tools/FileConverter";
+import RegexGenerator from "./components/tools/RegexGenerator";
+import WebsiteCostCalculator from "./components/tools/WebsiteCostCalculator";
 // import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
@@ -355,13 +369,40 @@ function App() {
           <Routes>
             {/* NEW: Home Page with enhanced design */}
             {/* <Route path="/" element={<ToolsPage />} /> */}
-            <Route path="/" element= { <>  <ToolsPage /> <HomePage /> </>} />
-            
+            <Route
+              path="/"
+              element={
+                <>
+                  {" "}
+                  <ToolsPage /> <HomePage /> 
+                </>
+              }
+            />
             {/* Existing Tools Page (keep for /tools route) */}
             <Route path="/tools" element={<ToolsPage />} />
-
             {/* Single Category Page with parameter */}
             <Route path="/tools/:categoryId" element={<CategoryToolsPage />} />
+            // Add this route in your Routes section (after other routes)
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            // Add these routes in your Routes section
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            // Add these routes in your Routes section
+            <Route path="/features" element={<Features />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/mobile" element={<MobileApp />} />
+            <Route path="/desktop" element={<DesktopApp />} />
+            <Route path="/api" element={<API />} />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/press" element={<Press />} />
 
             {/* Individual Tool Routes */}
             <Route path="/image-resizer" element={<ImageResizer />} />
@@ -374,14 +415,14 @@ function App() {
             <Route path="/json-formatter" element={<JSONFormatter />} />
             <Route path="/markdown-previewer" element={<MarkdownPreviewer />} />
             <Route path="/text-diff-checker" element={<TextDiffChecker />} />
-            <Route path="/percentage-calculator" element={<PercentageCalculator />} />
+            <Route path="/percentage-calculator" element={<PercentageCalculator />}/>
             <Route path="/age-calculator" element={<AgeCalculator />} />
             <Route path="/time-calculator" element={<TimeCalculator />} />
             <Route path="/csv-to-json" element={<CSVtoJSON />} />
             <Route path="/xml-formatter" element={<XMLFormatter />} />
             <Route path="/url-encoder" element={<URLEncoder />} />
             <Route path="/text-extractor" element={<TextExtractor />} />
-            <Route path="/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
+            <Route path="/lorem-ipsum-generator" element={<LoremIpsumGenerator />}/>
             <Route path="/qr-code-tool" element={<QRCodeTool />} />
             <Route path="/ssl-checker" element={<SslChecker></SslChecker>} />
             <Route path="/svg-converter" element={<SvgConverter />} />
@@ -394,24 +435,28 @@ function App() {
             <Route path="/data-uri-generator" element={<DataUriGenerator />} />
             <Route path="/favicon-generator" element={<FaviconGenerator />} />
             <Route path="/pdfImage-extractor" element={<PDFImageExtractor />} />
-            <Route path="/file-rename-tool" element={<FileRenameTool/>} />
-            <Route path="/file-converter" element={<FileConverter/>} />
+            <Route path="/file-rename-tool" element={<FileRenameTool />} />
+            <Route path="/file-converter" element={<FileConverter />} />
+            <Route path="/regex-generator" element={<RegexGenerator />} />
+            <Route path="/website-cost-calculator" element={<WebsiteCostCalculator/>} />
             {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
-
             {/* 404 Page */}
-            <Route path="*" element={
-              <div className="not-found">
-                <h1>404 - Page Not Found</h1>
-                <p>The page you're looking for doesn't exist.</p>
-                <button
-                  className="back-button"
-                  onClick={() => window.location.href = '/'}
-                  style={{ marginTop: '1rem' }}
-                >
-                  Go to Home Page
-                </button>
-              </div>
-            } />
+            <Route
+              path="*"
+              element={
+                <div className="not-found">
+                  <h1>404 - Page Not Found</h1>
+                  <p>The page you're looking for doesn't exist.</p>
+                  <button
+                    className="back-button"
+                    onClick={() => (window.location.href = "/")}
+                    style={{ marginTop: "1rem" }}
+                  >
+                    Go to Home Page
+                  </button>
+                </div>
+              }
+            />
           </Routes>
         </main>
         <Footer />
@@ -420,4 +465,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

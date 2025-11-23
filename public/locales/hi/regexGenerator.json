@@ -1,0 +1,37 @@
+{
+  "title": "रेजेक्स जनरेटर",
+  "subtitle": "प्राकृतिक भाषा विवरण से रेगुलर एक्सप्रेशन बनाएं",
+  "inputPlaceholder": "बताएं कि आप कौन सा पैटर्न मैच करना चाहते हैं...",
+  "examples": "उदाहरण",
+  "generateBtn": "रेजेक्स जनरेट करें",
+  "generating": "जनरेट हो रहा है...",
+  "clearBtn": "साफ करें",
+  "copyBtn": "कॉपी करें",
+  "testSection": "अपना रेजेक्स टेस्ट करें",
+  "testInputPlaceholder": "रेजेक्स पैटर्न टेस्ट करने के लिए टेक्स्ट डालें...",
+  "matches": "मैचेस",
+  "noMatches": "कोई मैच नहीं मिला",
+  "explanation": "व्याख्या",
+  "cheatsheet": "रेजेक्स चीटशीट",
+  "error": "रेजेक्स जनरेट करने में त्रुटि",
+  "examplesList": {
+    "email": "ईमेल एड्रेस मैच करें",
+    "phone": "US फोन नंबर मैच करें",
+    "url": "URLs मैच करें",
+    "ip": "IP एड्रेस मैच करें",
+    "date": "तारीखें मैच करें (YYYY-MM-DD)",
+    "strongPassword": "स्ट्रॉन्ग पासवर्ड वैलिडेशन",
+    "htmlTags": "HTML टैग मैच करें",
+    "creditCard": "क्रेडिट कार्ड नंबर मैच करें"
+  },
+  "cheatsheetItems": {
+    "digits": "अंक: \\d",
+    "wordChars": "वर्ड कैरेक्टर्स: \\w",
+    "whitespace": "व्हाइटस्पेस: \\s",
+    "quantifiers": "क्वांटिफायर्स: *, +, ?, {n}",
+    "groups": "ग्रुप्स: ()",
+    "alternation": "अल्टरनेशन: |",
+    "anchors": "एंकर्स: ^, $",
+    "characterClasses": "कैरेक्टर क्लासेस: []"
+  }
+}

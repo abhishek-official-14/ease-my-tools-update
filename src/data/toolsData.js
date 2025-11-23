@@ -34,7 +34,7 @@ import {
 } from 'react-icons/tb';
 
 
-import { BsFiletypeSvg } from "react-icons/bs"
+import { BsFiletypeSvg, BsRegex } from "react-icons/bs"
 import { VscFilePdf } from "react-icons/vsc"
 // Only include categories that have tools.
 
@@ -71,6 +71,7 @@ export const toolsByCategory = {
         { name: "XML Formatter", link: "/xml-formatter", icon: FaFileCode },
         { name: "File Rename Tool", link: "/file-rename-tool", icon: MdOutlineDriveFileRenameOutline },
         { name: "File Converter", link: "/file-converter", icon: FaFileCsv },
+        { name: "Regex Generator", link: "/regex-generator", icon: BsRegex },
         
     ],
     web: [
@@ -79,6 +80,7 @@ export const toolsByCategory = {
         { name: "SSL Checker", link: "/ssl-checker", icon: FaTextHeight },
         { name: "JWT Debugger", link: "/jwt-debugger", icon: FaTextHeight },
         { name: "FaviconGenerator", link: "/favicon-generator", icon: TbFavicon },
+        { name: "WebsiteCostCalculator", link: "/website-cost-calculator", icon: TbFavicon },
     ],
     generators: [
         { name: "Lorem Ipsum Generator", link: "/lorem-ipsum-generator", icon: FaTextHeight },

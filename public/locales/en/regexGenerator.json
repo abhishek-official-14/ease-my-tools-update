@@ -1,0 +1,37 @@
+{
+  "title": "Regex Generator",
+  "subtitle": "Generate regular expressions from natural language descriptions",
+  "inputPlaceholder": "Describe what pattern you want to match...",
+  "examples": "Examples",
+  "generateBtn": "Generate Regex",
+  "generating": "Generating...",
+  "clearBtn": "Clear",
+  "copyBtn": "Copy",
+  "testSection": "Test Your Regex",
+  "testInputPlaceholder": "Enter text to test the regex pattern...",
+  "matches": "Matches",
+  "noMatches": "No matches found",
+  "explanation": "Explanation",
+  "cheatsheet": "Regex Cheatsheet",
+  "error": "Error generating regex",
+  "examplesList": {
+    "email": "Match email addresses",
+    "phone": "Match US phone numbers",
+    "url": "Match URLs",
+    "ip": "Match IP addresses",
+    "date": "Match dates (YYYY-MM-DD)",
+    "strongPassword": "Strong password validation",
+    "htmlTags": "Match HTML tags",
+    "creditCard": "Match credit card numbers"
+  },
+  "cheatsheetItems": {
+    "digits": "Digits: \\d",
+    "wordChars": "Word characters: \\w",
+    "whitespace": "Whitespace: \\s",
+    "quantifiers": "Quantifiers: *, +, ?, {n}",
+    "groups": "Groups: ()",
+    "alternation": "Alternation: |",
+    "anchors": "Anchors: ^, $",
+    "characterClasses": "Character classes: []"
+  }
+}

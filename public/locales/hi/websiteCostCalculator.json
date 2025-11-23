@@ -1,0 +1,92 @@
+{
+  "title": "वेबसाइट लागत कैलकुलेटर",
+  "subtitle": "एजेंसियों और फ्रीलांसर्स के लिए पेशेवर वेबसाइट विकास लागत अनुमानक",
+  "projectDetails": "प्रोजेक्ट विवरण",
+  "projectName": "प्रोजेक्ट नाम",
+  "projectNamePlaceholder": "प्रोजेक्ट नाम दर्ज करें...",
+  "projectType": "प्रोजेक्ट प्रकार",
+  "features": "फीचर्स और फंक्शनैलिटी",
+  "design": "डिजाइन और UX",
+  "development": "डेवलपमेंट",
+  "content": "कंटेंट और SEO",
+  "timeline": "टाइमलाइन",
+  "team": "टीम और दरें",
+  "summary": "लागत सारांश",
+  "export": "प्रस्ताव निर्यात करें",
+  "calculate": "लागत गणना करें",
+  "reset": "रीसेट",
+  "totalCost": "कुल अनुमानित लागत",
+  "breakdown": "लागत विवरण",
+  "assumptions": "धारणाएं",
+  "notes": "नोट्स",
+  "projectTypes": {
+    "landing": "लैंडिंग पेज",
+    "brochure": "ब्रोशर वेबसाइट",
+    "corporate": "कॉर्पोरेट वेबसाइट",
+    "ecommerce": "ई-कॉमर्स स्टोर",
+    "webapp": "वेब एप्लिकेशन",
+    "custom": "कस्टम प्लेटफॉर्म"
+  },
+  "featuresList": {
+    "responsive": "रिस्पॉन्सिव डिजाइन",
+    "cms": "CMS इंटीग्रेशन",
+    "blog": "ब्लॉग सिस्टम",
+    "contact": "कॉन्टैक्ट फॉर्म",
+    "social": "सोशल मीडिया इंटीग्रेशन",
+    "multilingual": "मल्टीलिंगुअल सपोर्ट",
+    "userAccounts": "यूजर अकाउंट्स",
+    "payment": "पेमेंट गेटवे",
+    "inventory": "इन्वेंटरी मैनेजमेंट",
+    "booking": "बुकिंग सिस्टम",
+    "api": "API इंटीग्रेशन",
+    "analytics": "एडवांस्ड एनालिटिक्स"
+  },
+  "designOptions": {
+    "template": "टेम्पलेट-आधारित",
+    "custom": "कस्टम डिजाइन",
+    "premium": "प्रीमियम कस्टम",
+    "branding": "ब्रांडिंग पैकेज"
+  },
+  "developmentOptions": {
+    "wordpress": "वर्डप्रेस",
+    "shopify": "शॉपिफाई",
+    "react": "रिएक्ट/नेक्स्ट.जेएस",
+    "vue": "व्यू/नक्स्ट.जेएस",
+    "angular": "एंगुलर",
+    "customStack": "कस्टम स्टैक"
+  },
+  "contentOptions": {
+    "client": "क्लाइंट प्रदान करता है",
+    "basic": "बेसिक राइटिंग",
+    "professional": "प्रोफेशनल कॉपी",
+    "seo": "SEO ऑप्टिमाइज्ड"
+  },
+  "timelineOptions": {
+    "rush": "जल्दी (2-4 सप्ताह)",
+    "standard": "स्टैंडर्ड (6-8 सप्ताह)",
+    "extended": "विस्तारित (10-12 सप्ताह)",
+    "complex": "कॉम्प्लेक्स (14+ सप्ताह)"
+  },
+  "teamRoles": {
+    "projectManager": "प्रोजेक्ट मैनेजर",
+    "designer": "UI/UX डिजाइनर",
+    "frontend": "फ्रंटएंड डेवलपर",
+    "backend": "बैकएंड डेवलपर",
+    "content": "कंटेंट राइटर",
+    "seo": "SEO स्पेशलिस्ट"
+  },
+  "costElements": {
+    "development": "डेवलपमेंट",
+    "design": "डिजाइन",
+    "content": "कंटेंट",
+    "projectManagement": "प्रोजेक्ट मैनेजमेंट",
+    "seo": "SEO",
+    "hosting": "होस्टिंग और मेंटेनेंस",
+    "thirdParty": "थर्ड-पार्टी सर्विसेज"
+  },
+  "exportOptions": {
+    "pdf": "PDF प्रस्ताव निर्यात करें",
+    "doc": "वर्ड डॉक्यूमेंट निर्यात करें",
+    "excel": "एक्सेल शीट निर्यात करें"
+  }
+}
