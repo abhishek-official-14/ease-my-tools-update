@@ -258,3 +258,156 @@
         font-size: 2rem;
     }
 }
+
+
+
+
+
+/* Responsive Design for Tool Pages */
+.tool-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem var(--container-padding-mobile);
+}
+
+.tool-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tool-header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.tool-header p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  margin-bottom: 2rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 140px;
+}
+
+/* Preview Section */
+.preview-container {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tool-container {
+    padding: 3rem var(--container-padding-tablet);
+  }
+  
+  .tool-header h1 {
+    font-size: 2.75rem;
+  }
+  
+  .preview-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .action-buttons {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .tool-container {
+    padding: 4rem var(--container-padding-desktop);
+  }
+  
+  .tool-header h1 {
+    font-size: 3rem;
+  }
+  
+  .preview-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .tool-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .tool-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .tool-header p {
+    font-size: 1.1rem;
+  }
+  
+  .upload-area {
+    padding: 2rem 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .primary-btn, .secondary-btn {
+    width: 100%;
+  }
+  
+  .preview-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .tool-container {
+    padding: 1rem;
+  }
+  
+  .tool-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .tool-header p {
+    font-size: 1rem;
+  }
+  
+  .upload-area {
+    padding: 1.5rem 1rem;
+  }
+}

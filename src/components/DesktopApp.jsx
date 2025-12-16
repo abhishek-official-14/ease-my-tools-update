@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../contexts/ThemeContext';
-import '../styles/DesktopApp.css';
+import '../styles/DesktopApp.module.css';
 
 const DesktopApp = () => {
   const { t } = useTranslation();

@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 40vh;
+  /* min-height: 40vh; */
+  min-height: 35vh;
   padding: 20px;
   transition: background 0.3s, color 0.3s;
 }

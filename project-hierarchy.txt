@@ -15,7 +15,11 @@ tools-2-master
 │  │  │  ├─ caseConverter.json
 │  │  │  ├─ colorPicker.json
 │  │  │  ├─ csvToJson.json
+│  │  │  ├─ currencyConverter.json
 │  │  │  ├─ dataUriGenerator.json
+│  │  │  ├─ faviconGenerator.json
+│  │  │  ├─ fileConverter.json
+│  │  │  ├─ fileRenameTool.json
 │  │  │  ├─ hashGenerator.json
 │  │  │  ├─ header.json
 │  │  │  ├─ imageResizer.json
@@ -28,8 +32,10 @@ tools-2-master
 │  │  │  ├─ nutritionAdvisor.json
 │  │  │  ├─ nutritionMaster.json
 │  │  │  ├─ passwordGenerator.json
+│  │  │  ├─ pdfImageExtractor.json
 │  │  │  ├─ percentageCalculator.json
 │  │  │  ├─ qrGenerator.json
+│  │  │  ├─ regexGenerator.json
 │  │  │  ├─ removeBg.json
 │  │  │  ├─ sslChecker.json
 │  │  │  ├─ svgConverter.json
@@ -38,6 +44,7 @@ tools-2-master
 │  │  │  ├─ tools.json
 │  │  │  ├─ unitConverter.json
 │  │  │  ├─ urlEncoder.json
+│  │  │  ├─ websiteCostCalculator.json
 │  │  │  ├─ wordCounter.json
 │  │  │  └─ xmlFormatter.json
 │  │  └─ hi
@@ -46,7 +53,11 @@ tools-2-master
 │  │     ├─ caseConverter.json
 │  │     ├─ colorPicker.json
 │  │     ├─ csvToJson.json
+│  │     ├─ currencyConverter.json
 │  │     ├─ dataUriGenerator.json
+│  │     ├─ faviconGenerator.json
+│  │     ├─ fileConverter.json
+│  │     ├─ fileRenameTool.json
 │  │     ├─ hashGenerator.json
 │  │     ├─ header.json
 │  │     ├─ imageResizer.json
@@ -56,8 +67,10 @@ tools-2-master
 │  │     ├─ mp4ToGif.json
 │  │     ├─ navbar.json
 │  │     ├─ passwordGenerator.json
+│  │     ├─ pdfImageExtractor.json
 │  │     ├─ percentageCalculator.json
 │  │     ├─ qrGenerator.json
+│  │     ├─ regexGenerator.json
 │  │     ├─ removeBg.json
 │  │     ├─ sslChecker.json
 │  │     ├─ textExtractor.json
@@ -65,6 +78,7 @@ tools-2-master
 │  │     ├─ tools.json
 │  │     ├─ unitConverter.json
 │  │     ├─ urlEncoder.json
+│  │     ├─ websiteCostCalculator.json
 │  │     ├─ wordCounter.json
 │  │     └─ xmlFormatter.json
 │  └─ vite.svg
@@ -76,11 +90,35 @@ tools-2-master
 │  │  ├─ EaseMyTools.svg
 │  │  └─ react.svg
 │  ├─ components
+│  │  ├─ About.jsx
+│  │  ├─ API.jsx
+│  │  ├─ BackButton.jsx
+│  │  ├─ BenefitsSection.jsx
+│  │  ├─ Blog.jsx
+│  │  ├─ Business.jsx
 │  │  ├─ CategoryToolsPage.jsx
+│  │  ├─ Contact.jsx
+│  │  ├─ CookiePolicy.jsx
+│  │  ├─ DesktopApp.jsx
+│  │  ├─ Documentation.jsx
+│  │  ├─ Education.jsx
+│  │  ├─ FAQ.jsx
+│  │  ├─ FeaturedTools.jsx
+│  │  ├─ Features.jsx
 │  │  ├─ Footer.jsx
 │  │  ├─ Header.jsx
+│  │  ├─ HeroSection.jsx
+│  │  ├─ HomePage.jsx
 │  │  ├─ LanguageSelector.jsx
+│  │  ├─ MobileApp.jsx
 │  │  ├─ Navbar.jsx
+│  │  ├─ NewsletterSection.jsx
+│  │  ├─ Press.jsx
+│  │  ├─ Pricing.jsx
+│  │  ├─ PrivacyPolicy.jsx
+│  │  ├─ Security.jsx
+│  │  ├─ TermsConditions.jsx
+│  │  ├─ TestimonialsSection.jsx
 │  │  ├─ tools
 │  │  │  ├─ AgeCalculator.jsx
 │  │  │  ├─ Base64Converter.jsx
@@ -89,6 +127,9 @@ tools-2-master
 │  │  │  ├─ CSVtoJSON.jsx
 │  │  │  ├─ CurrencyConverter.jsx
 │  │  │  ├─ DataUriGenerator.jsx
+│  │  │  ├─ FaviconGenerator.jsx
+│  │  │  ├─ FileConverter.jsx
+│  │  │  ├─ FileRenameTool.jsx
 │  │  │  ├─ HashGenerator.jsx
 │  │  │  ├─ ImageResizer.jsx
 │  │  │  ├─ ImageToSvg.jsx
@@ -99,8 +140,10 @@ tools-2-master
 │  │  │  ├─ Mp4ToGif.jsx
 │  │  │  ├─ NutritionMaster.jsx
 │  │  │  ├─ PasswordGenerator.jsx
+│  │  │  ├─ PDFImageExtractor.jsx
 │  │  │  ├─ PercentageCalculator.jsx
 │  │  │  ├─ QRCodeTool.jsx
+│  │  │  ├─ RegexGenerator.jsx
 │  │  │  ├─ RemoveBackground.jsx
 │  │  │  ├─ SslChecker.jsx
 │  │  │  ├─ SvgConverter.jsx
@@ -110,6 +153,7 @@ tools-2-master
 │  │  │  ├─ TimeCalculator.jsx
 │  │  │  ├─ UnitConverter.jsx
 │  │  │  ├─ URLEncoder.jsx
+│  │  │  ├─ WebsiteCostCalculator.jsx
 │  │  │  ├─ WordCounter.jsx
 │  │  │  └─ XMLFormatter.jsx
 │  │  └─ ToolsPage.jsx
@@ -121,9 +165,31 @@ tools-2-master
 │  ├─ index.css
 │  ├─ main.jsx
 │  └─ styles
+│     ├─ API.css
+│     ├─ BackButton.css
+│     ├─ BenefitsSection.css
+│     ├─ Blog.css
+│     ├─ Business.css
+│     ├─ CategoryToolsPage.css
+│     ├─ DesktopApp.module.css
+│     ├─ Documentation.css
+│     ├─ Education.css
+│     ├─ FAQ.css
+│     ├─ FeaturedTools.css
+│     ├─ Features.css
 │     ├─ Footer.css
 │     ├─ Header.css
+│     ├─ HeroSection.css
+│     ├─ HomePage.css
+│     ├─ LegalPage.css
+│     ├─ MobileApp.css
 │     ├─ Navbar.css
+│     ├─ NewsletterSection.css
+│     ├─ Press.css
+│     ├─ Pricing.css
+│     ├─ PrivacyPolicy.css
+│     ├─ Security.css
+│     ├─ TestimonialsSection.css
 │     ├─ tools
 │     │  ├─ AgeCalculator.css
 │     │  ├─ Base64Converter.css
@@ -133,6 +199,9 @@ tools-2-master
 │     │  ├─ CSVtoJSON.css
 │     │  ├─ CurrencyConverter.css
 │     │  ├─ DataUriGenerator.css
+│     │  ├─ FaviconGenerator.css
+│     │  ├─ FileConverter.css
+│     │  ├─ FileRenameTool.css
 │     │  ├─ HashGenerator.css
 │     │  ├─ ImageResizer.css
 │     │  ├─ ImageToSvg.css
@@ -143,9 +212,11 @@ tools-2-master
 │     │  ├─ Mp4ToGif.css
 │     │  ├─ NutritionMaster.css
 │     │  ├─ PasswordGenerator.css
+│     │  ├─ PDFImageExtractor.css
 │     │  ├─ PercentageCalculator.css
 │     │  ├─ QRCodeGenerator.css
 │     │  ├─ QRCodeTool.css
+│     │  ├─ RegexGenerator.css
 │     │  ├─ RemoveBackground.css
 │     │  ├─ SslChecker.css
 │     │  ├─ SvgConverter.css
@@ -154,6 +225,7 @@ tools-2-master
 │     │  ├─ TimeCalculator.css
 │     │  ├─ unitconverter.css
 │     │  ├─ URLEncoder.css
+│     │  ├─ WebsiteCostCalculator.css
 │     │  ├─ WordCounter.css
 │     │  └─ XMLFormatter.css
 │     └─ ToolsPage.css
