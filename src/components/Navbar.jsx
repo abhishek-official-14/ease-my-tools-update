@@ -1,3 +1,4 @@
+// @ts-nocheck
 // import React from "react";
 // import "../styles/Navbar.css";
 // import { useTheme } from "../contexts/ThemeContext";
@@ -520,7 +521,7 @@ const Navbar = () => {
               <div className="mobile-menu-header">
                 <div className="mobile-menu-title">Menu</div>
                 <button className="mobile-close-btn" onClick={toggleMenu}>
-                  ✕
+                  {/* ✕ */}
                 </button>
               </div>
 
