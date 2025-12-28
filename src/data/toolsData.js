@@ -65,6 +65,7 @@ export const toolsByCategory = {
         { name: "Percentage Calculator", link: "/percentage-calculator", icon: FaCalculator },
         { name: "Age Calculator", link: "/age-calculator", icon: FaCalculator },
         { name: "Time Calculator", link: "/time-calculator", icon: FaCalculator },
+        { name: "Finance Calculator", link: "/finance-calculator", icon: FaCalculator },
     ],
     file: [
         { name: "CSV to JSON", link: "/csv-to-json", icon: FaFile },

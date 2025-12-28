@@ -344,6 +344,7 @@ import FileConverter from "./components/tools/FileConverter";
 import RegexGenerator from "./components/tools/RegexGenerator";
 import WebsiteCostCalculator from "./components/tools/WebsiteCostCalculator";
 import BackButton from "./components/BackButton";
+import FinanceCalculator from "./components/tools/FinanceCalculator";
 // import Mp4ToGif from "./components/tools/Mp4ToGif";
 
 function App() {
@@ -442,6 +443,7 @@ function App() {
             <Route path="/file-converter" element={<FileConverter />} />
             <Route path="/regex-generator" element={<RegexGenerator />} />
             <Route path="/website-cost-calculator" element={<WebsiteCostCalculator/>} />
+            <Route path="/finance-calculator" element={<FinanceCalculator/>} />
             {/* <Route path="/mp4-to-gif" element={<Mp4ToGif />} /> */}
             {/* 404 Page */}
             <Route
