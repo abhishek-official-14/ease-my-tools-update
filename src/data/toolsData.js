@@ -46,6 +46,7 @@ export const toolsByCategory = {
         { name: "ImageToSvg", link: "/image-to-svg", icon: TbVectorTriangle },
         { name: "RemoveBackground", link: "/remove-background", icon: MdAutoFixHigh },
         { name: "Mp4ToGif", link: "/mp4-to-gif", icon: FaBeer },
+        { name: "Image Compressor", link: "//image-compressor", icon: MdOutlineImage },
     ],
     converters: [
         { name: "Unit Converter", link: "/unit-converter", icon: FaExchangeAlt },
